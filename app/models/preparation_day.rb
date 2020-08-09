@@ -1,2 +1,0 @@
-class PreparationDay < ApplicationRecord
-end
