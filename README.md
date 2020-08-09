@@ -84,7 +84,8 @@
 |deal_closed_date|timestamps|
 ### Association
 - belongs_to:size
-- belongs_to:brad
+- belongs_to:brand
+- belongs_to:category
 - belongs_to_:seller,class_name:"users"
 - belongs_to_:buyer,class_name:"users"
 
