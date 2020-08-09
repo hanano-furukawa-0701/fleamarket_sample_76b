@@ -6,13 +6,13 @@
 |password|string|null: false|
 |email|string|null: false,unique,index:true|
 ### Association
-- has_many :todo_lists
-- has_many:user_evaluations
-- has_many :seller_items(foreign_key:"seller_id",class_name:items)
+- has_many :todo_lists,dependent: :destroy
+- has_many:user_evaluations,dependent: :destroy
+- has_many :seller_items(foreign_key:"seller_id",class_name:items),dependent: :destroy
 - has_one:profile,dependent: :destroy
 - has_one:sending_destination,dependent: :destroy
 - has_one:credit_card,dependent: :destroy
-
+- has_one:point,dependent: :destroy
 
 ## user_evaluationsテーブル
 |Column|Type|Options|
@@ -88,8 +88,9 @@
 - belongs_to:category
 - belongs_to_:seller,class_name:"users"
 - belongs_to_:buyer,class_name:"users"
+- has_many :item_imgs(foreign_key:true)dependent: :destroy
 
-## itemimgsテーブル
+## item_imgsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |item_id|references|null: false,foreign_key:true|
