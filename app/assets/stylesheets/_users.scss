@@ -1,0 +1,127 @@
+.content{
+  width: 100%;
+  height: 100vh;
+  background-color:white;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  .content_body{
+    width: 567px;
+    height: 860px;
+    background-color:#f5f5f5;
+      h2{
+        color:black;
+        border-bottom:medium solid  white;
+        text-align: center;
+        font-size: larger;
+        height: 80px;
+        line-height: 80px;
+      }
+    .content_body_name{
+      padding-top: 20px;
+    }
+    .field{
+      text-align: center;
+      .field_box{
+        display: flex;
+        padding-left: 100px;
+        padding-bottom: 5px;
+        .mustbox{
+          color: white;
+          background-color: #3CCACE;
+          margin-left: 10px;
+          padding: 0px 5px;
+        }
+      }
+      #user_nickname{
+        height: 50px;
+      }
+      #user_email{
+        height: 50px;
+      }
+      #user_password{
+        height: 50px;
+      }
+    }
+    }
+    .confirmation_text{
+      padding:10px 70px ;
+      text-align: center;
+      
+  }
+  .name{
+    text-align:center;
+    padding: 10px 50px;
+    .name_field{
+      display: flex;
+    }
+      .field{
+        .field_boxtwo{
+          display: flex;
+          padding-left: 60px;
+          .mustbox{
+            color: white;
+            background-color:#3CCACE;
+            margin-left: 10px;
+            padding: 0px 5px;
+          }
+
+        }
+        .namebox{
+        display: flex;
+        justify-content: space-evenly;
+          #user_First_name{
+            height: 50px;
+          }
+          #user_Family_name{
+            height: 50px;
+          }
+          #user_First_name_kana{
+            height: 50px;
+          }
+          #user_Family_name_kana{
+            height: 50px;
+          }
+      }
+  }
+  }
+  .birth{
+    .field{
+      text-align:center;
+      .field_three{
+        display: flex;
+          padding-left: 110px;
+      
+        .mustbox{
+            color: white;
+            background-color:#3CCACE;
+            margin-left: 10px;
+            padding: 0px 5px;
+          }
+
+      }
+      .birth_box{
+        display: flex;
+        justify-content: space-evenly;
+        padding: 10px 100px;
+        #user_Birth_day_1i{
+          width: 130px;
+          height: 50px;
+        }
+    }
+  }
+}
+  .attention{
+    padding: 10px 50px;}
+  .actions{
+    text-align: center;
+    padding-top: 60px;
+    .btn{
+      color:white;
+      background-color: #3CCACE;
+      width: 500px;
+      height: 60px;
+    }
+  }
+}
