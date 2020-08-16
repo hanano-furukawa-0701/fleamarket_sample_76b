@@ -7,8 +7,8 @@
     align-items: center;
   
   .content_body{
-    width: 567px;
     
+    width: 567px;
     background-color:#f5f5f5;
       h2{
         color:black;
@@ -18,6 +18,24 @@
         height: 100px;
         line-height: 100px;
       }
+      .text{
+        text-align: center;
+        line-height: 50px;
+        height: 130px;
+        border-bottom:medium solid  white;
+        .text_new{
+          height: 40px;
+          padding: 0px 100px;
+          
+          .text_new_regist{
+            background-color:#0099e8;
+            height: 40px;
+            line-height: 40px;
+            color: white;
+          }
+        }
+      }
+
     .content_body_name{
       padding-top: 20px;
     
@@ -36,7 +54,7 @@
           padding: 0px 5px;
         }
       }
-      #user_nickname{
+      #user_Nickname{
         height: 50px;
       }
       #user_email{
@@ -119,11 +137,16 @@
   .actions{
     text-align: center;
     padding-top: 30px;
+    padding-bottom: 50px;
     .btn{
       color:white;
       background-color: #3CCACE;
       width: 500px;
       height: 60px;
-    }
+      
+    } 
   }
+  // .box{
+  //   height: 100vh;
+  // }
 }
