@@ -170,7 +170,7 @@ $point-color: white;
   }
 
   .item-introduction {
-    padding: 60px 0;
+    padding: 60px 0 100px;
     background-color: #f8f8f8;
     &__title {
       font-size: 28px;
@@ -226,6 +226,78 @@ $point-color: white;
           }
         }
       }
+    }
+  }
+
+  .bottom-banner {
+    width: 100%;
+    height: 360px;
+    background-image: url(/material/pict/bg-appBanner-pict.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__items {
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      color: $point-color;
+      text-align: center;
+      &__title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      &__text {
+        font-size: 35px;
+        margin-bottom: 20px;
+      }
+      @include download-btn();
+      &__btn {
+        justify-content: center;
+      }
+    }
+  }
+
+  .footer {
+    width: 100%;
+    background-color: #272727;
+    color: white;
+    padding: 50px 0;
+    &__contents {
+      width: 700px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      &__content {
+        text-align: center;
+        &__title {
+          font-size: 16px;
+          font-weight: bold;
+          padding-bottom: 10px;
+        }
+        &__items {
+          font-size: 11px;
+          &__item {
+            margin: 15px 0;
+            a {
+              color: white;
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+    &__logo {
+      text-align: center;
+      img {
+        width: 150px;
+        vertical-align: bottom;
+      }
+    }
+    p {
+      font-size: 14px;
+      text-align: center;
     }
   }
 }
