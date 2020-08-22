@@ -1,0 +1,92 @@
+.item-details
+  .item-details__contents
+    .item-details__contents__item-box
+      %h2.item-details__contents__item-box__name
+        apple watch
+      %ul.item-details__contents__item-box__images
+        %li.item-details__contents__item-box__main-image
+          = image_tag "https://img.fril.jp/img/254372826/l/720448964.jpg?1566877916"
+        %li.item-details__contents__item-box__sub-images
+          %ul
+            %li 
+              = image_tag "https://img.fril.jp/img/254372826/l/720448964.jpg?1566877916"
+            %li 
+              = image_tag "https://img21.shop-pro.jp/PA01412/851/product/146346638.jpg?cmsp_timestamp=20191020171625"
+      .item-details__contents__item-box__price
+        ¥10000
+        .item-details__contents__item-box__price__tax
+          （税込）送料込み
+      .item-details__contents__item-box__text
+        エルメスのアップルウォッチです
+      .item-details__contents__item-box__imformation
+        %table  
+          %tr 
+            %th 出品者
+            %td hanano 
+          %tr
+            %th カテゴリー
+            %td 
+              = link_to '時計', '#' 
+          %tr
+            %th ブランド
+            %td apple
+          %tr
+            %th 商品のサイズ
+            %td 
+          %tr
+            %th 商品の状態
+            %td 新品/未使用
+          %tr
+            %th 配送料の負担
+            %td 送料込み（出品者負担）
+          %tr
+            %th 発送元の地域
+            %td
+              = link_to '愛知県', '#' 
+          %tr
+            %th 発送日の目安
+            %td 4-7日で発送
+      .item-details__contents__item-box__other
+        .item-details__contents__item-box__other__like
+          = icon('fas','star')
+          お気に入り 2
+        .item-details__contents__item-box__other__report
+          = link_to '#' do
+            = icon('fas', 'flag')
+            不適切な商品の通報
+    .item-details__contents__comment-box
+      .item-details__contents__conmment-box__form
+        %textarea
+        .item-details__contents__comment-box__form__warning
+          相手のことを考え丁寧なコメントを心がけましょう。
+          %br 不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %button.item-details__contents__comment-box__form__submit{type: "submit"}
+          = icon('fas', 'comment') 
+          コメントする
+  .item-details__links
+    .item-details__links__previous
+      = link_to '#' do
+        = icon('fa', 'angle-left')
+        前の商品
+    .item-details__links__back
+      = link_to '#' do
+        後ろの商品
+        = icon('fa', 'angle-right')
+  .item-details__other-items
+    = link_to '時計をもっと見る', '#'
+    .item-details__other-items__item-list
+      = link_to '#', class: "item-details__other-items__item-list__content" do
+        .item-details__other-items__item-list__content__top
+          = image_tag "https://item-shopping.c.yimg.jp/i/n/edc_6015-fb1"
+        .item-details__other-items__item-list__content__bottom
+          %h3.item-details__other-items__item-list__content__bottom__name
+            RITZENHOFF
+          .item-details__other-items__item-list__content__bottom__details
+            %ul
+              %li.item-details__other-items__item-list__content__bottom__details__price
+                10000円
+              %li.item-details__other-items__item-list__content__bottom__details__like
+                = icon('fas', 'star') 
+                1
+            %p.item-details__other-items__item-list__content__bottom__details__tax
+              （税込）
