@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   end
 
   root 'items#index'
-#   # resources :sending_destination, only: [:new, :create]
-# end
+
+
+
+  resources :items, only: [:index, :show]
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
