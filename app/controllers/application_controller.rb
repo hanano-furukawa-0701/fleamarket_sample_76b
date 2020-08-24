@@ -1,11 +1,32 @@
 class ApplicationController < ActionController::Base
 
   before_action :basic_auth, if: :production?
+  before_action :authenticate_user!
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:Nickname,:First_name,:First_name,:Family_name,:First_name_kana,:Family_name_kana,:Birth_day])
+    # devise_parameter_sanitizer.permit(:sign_up, keys: [:First_name])
+    # devise_parameter_sanitizer.permit(:sign_up, keys: [:Family_name])
+    # devise_parameter_sanitizer.permit(:sign_up, keys: [:First_name_kana])
+    # devise_parameter_sanitizer.permit(:sign_up, keys: [:Family_name_kana])
+    # devise_parameter_sanitizer.permit(:sign_up, keys: [:Birth_day])
+
+
+
+
+
+  end
 
   private
 
   def production?
     Rails.env.production?
+  end
+  def address_params
+    params.requre(:sending_destination).permit(:prefecture_name)
   end
 
   def basic_auth
