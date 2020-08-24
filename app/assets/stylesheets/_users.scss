@@ -54,6 +54,26 @@
           padding: 0px 5px;
         }
       }
+      .field_three{
+        display: flex;
+        padding-left: 50px;
+        padding-bottom: 5px;
+        .mustbox{
+          color: white;
+          background-color: #3CCACE;
+          margin-left: 10px;
+          padding: 0px 5px;
+        }
+        .anybox{
+          background-color: #ccc;
+          margin-left: 20px;
+
+        }
+      }
+      #sending_destination_prefecture_name{
+        width: 351px;
+        height: 28px;
+      }
       #user_Nickname{
         height: 50px;
       }
@@ -85,9 +105,20 @@
             background-color:#3CCACE;
             margin-left: 8px;
             padding: 0px 5px;
+            margin-bottom: 5px;
           }
-
         }
+
+
+
+
+
+
+        
+
+
+
+
         .namebox{
         display: flex;
         justify-content: space-evenly;
