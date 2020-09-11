@@ -1,0 +1,78 @@
+.wrapper{
+  margin: 40px auto 0;
+  width: 1040px;
+  display: flex;
+  justify-content: center;
+  .side-bar{
+    width: 280px;
+    margin: 0 40px 0 0;
+    border: 1px solid #eee;
+    li{
+      border-top: 1px solid #eee;
+      padding:16px;
+    }
+    h2{
+      padding: 16px;
+      height: 16px;
+
+    }
+    .side_menu-items{
+      position: relative;
+      padding:16px;
+      font-size: 14px;
+      color: #333;
+
+      text-decoration: none;
+    
+    }
+    
+    .my-page{
+      
+    }
+    .settings{
+      h2{
+        border-top: 1px solid #eee;
+      }
+    }
+  }
+  .main-content{
+    width: 700px;
+    border: 1px solid #eee;
+    .user-icon{
+      height: 160px;
+      margin: 20px;
+      width: calc(100% - 40px);
+      .user-photo{
+        margin: auto;
+        width: 60px;
+        height: 60px;
+      }
+      .user-name{
+      text-align: center;
+      }
+    }
+    .mypage-function{
+      display: flex;
+      justify-content: space-around;
+      text-decoration: none;
+      li{
+        width: 35%;
+        height: 80px;
+        text-align: center;
+        border: 1px solid #eee;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .function-logout{
+        text-decoration: none;
+        color: #333;
+      }
+      .function-creditcard{
+        text-decoration: none;
+        color: #333;
+      }
+    }
+  }
+}
