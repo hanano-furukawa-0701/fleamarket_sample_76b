@@ -10,9 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
+=======
 ActiveRecord::Schema.define(version: 2020_09_06_065125) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+>>>>>>> master
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,7 +1,10 @@
+#item_controller.rbの記述を作成
 class ItemsController < ApplicationController
+
   
   def index
     @items = Item.includes(:images).order('created_at DESC')
+>>>>>>> master
   end
 
   def new
@@ -52,4 +55,13 @@ end
 end
 
 
+<<<<<<< HEAD
+private
+
+def item_params
+  params.require(:item).permit(:name, :text, :category_id, :condition_id, :deliverycost_id, :pref_id, :delivery_days_id, :price, images: []).merge(user_id: current_user.id, boughtflg_id:"1")
+  end
+end
+=======
 # includes(:images).order('created_at DESC')
+>>>>>>> master
