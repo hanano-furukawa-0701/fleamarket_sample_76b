@@ -1,0 +1,2 @@
+class SendingDestinationController < ApplicationController
+end

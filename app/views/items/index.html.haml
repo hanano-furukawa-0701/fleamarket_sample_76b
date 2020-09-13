@@ -1,2 +1,14 @@
-%h1 Items#index
-%p Find me in app/views/items/index.html.erb
+.top-page
+  = render "main_visual"
+  = render "introduction"
+  = render "middle_image"
+  = render "features"
+  = render "item_introduction"
+= render "bottom_banner"
+= render "footer"
+
+ 
+.chat-main__group-info__right
+  .chat-main__group-info__right__edit
+  =link_to '編集', edit_item_path(@item) , class: "chat-main__group-info__right__edit__btn"
+      
