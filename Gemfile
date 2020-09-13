@@ -72,6 +72,14 @@ group :production do
   gem 'unicorn'
 end
 
-gem "haml-rails",">=1.0","<=2.0.1"
-#hamlをインストール。カリキュラムの3496参照です。byマツシタ
 
+gem "haml-rails", ">= 1.0", '<= 2.0.1'
+gem 'font-awesome-sass'
+gem 'devise'
+gem 'jp_prefecture'
+gem 'jquery-rails' 
+gem 'simple_form'
+gem 'active_hash', '~> 2.3.0' 
+gem 'carrierwave'
+gem 'mini_magick'
+>>>>>>> master

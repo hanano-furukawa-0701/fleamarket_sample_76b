@@ -1,0 +1,26 @@
+.features
+  %h2.features__title
+    FURIMAの特徴
+  %ul.features__list
+    %li.features__list__content
+      .features__list__content__image
+        = image_tag "/material/icon/icon-01.png"
+      %h3.features__list__content__title
+        簡単に売り買いできる
+      %p.features__list__content__text
+        スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+    %li.features__list__content
+      .features__list__content__image
+        = image_tag "/material/icon/icon-03.png"
+      %h3.features__list__content__title
+        売上金は即日振込みに対応
+      %p.features__list__content__text
+        午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします！
+    %li.features__list__content
+      .features__list__content__image
+        = image_tag "/material/icon/icon-04.png"
+      %h3.features__list__content__title
+        様々な支払いに対応
+      %p.features__list__content__text
+        お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+        =link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
