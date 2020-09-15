@@ -34,9 +34,10 @@
       .user-photo
         = image_tag "member_photo_noimage_thumb.png", size:"60x60",alt:"アイコン"
       .user-name
-        %h2 ユーザーの名前
+        %p 
+          =@Nickname
     %ul.mypage-function
       %li
-        = link_to('ログアウトする',root_path,class:"function-logout")
+        = link_to('ログアウトする',destroy_user_session_path,method: :delete,class:"function-logout")
       %li
         = link_to('クレジットカードの登録/変更',root_path,class:"function-creditcard")

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+
+  root 'items#index'
+  get 'users/mypage',to:'users#show'
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -7,10 +12,5 @@ Rails.application.routes.draw do
     post 'sending_destinations', to: 'users/registrations#create_sending_destinations'
   end
 
-  root 'items#index'
-  get 'users/mypage',to:'users#show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-end
-  resources :items
-  
 end
