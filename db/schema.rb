@@ -60,11 +60,6 @@ ActiveRecord::Schema.define(version: 2020_09_06_065125) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "preparations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "sending_destinations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "destination_first_name", default: "", null: false
     t.string "destination_family_name", default: "", null: false
