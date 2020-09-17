@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
 
   root 'items#index'
-  get 'users/mypage',to:'users#show'
-
+  resources :users,only: [:show]
+  
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
