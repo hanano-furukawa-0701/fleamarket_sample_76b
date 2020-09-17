@@ -12,14 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_09_06_065125) do
 
-  create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "customer_id", null: false
-    t.string "card_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_credit_cards_on_user_id"
-
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -29,6 +21,15 @@ ActiveRecord::Schema.define(version: 2020_09_06_065125) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_credit_cards_on_user_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -47,10 +48,8 @@ ActiveRecord::Schema.define(version: 2020_09_06_065125) do
     t.string "payer_id"
     t.string "preparation_day_id"
     t.integer "price"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "payers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -113,6 +112,5 @@ ActiveRecord::Schema.define(version: 2020_09_06_065125) do
 
   add_foreign_key "credit_cards", "users"
   add_foreign_key "images", "items"
-  add_foreign_key "items", "users"
   add_foreign_key "sending_destinations", "users"
 end
