@@ -3,31 +3,31 @@
     %ul.my-page
       %h2 マイページ
       %li
-        = link_to("お知らせ",root_path,class:"side_menu-items")
+        = link_to("お知らせ","#",class:"side_menu-items")
       %li 
-        = link_to('やることリスト', root_path,class:"side_menu-items")
+        = link_to('やることリスト', "#",class:"side_menu-items")
       %li 
-        = link_to("いいね！一覧",root_path,class:"side_menu-items")
+        = link_to("いいね！一覧","#",class:"side_menu-items")
       %li 
-        = link_to('出品する', root_path,class:"side_menu-items")
+        = link_to('出品する', "#",class:"side_menu-items")
       %li 
-        = link_to("下書き一覧",root_path,class:"side_menu-items")
+        = link_to("下書き一覧","#",class:"side_menu-items")
       %li 
-        = link_to('出品した商品', root_path,class:"side_menu-items")
+        = link_to('出品した商品', "#",class:"side_menu-items")
       %li 
-        = link_to("購入した商品",root_path,class:"side_menu-items")
+        = link_to("購入した商品","#",class:"side_menu-items")
       %li 
-        = link_to('評価一覧', root_path,class:"side_menu-items")
+        = link_to('評価一覧', "#",class:"side_menu-items")
     %ul.settings
       %h2 設定
       %li 
-        = link_to("プロフィール",root_path,class:"side_menu-items")
+        = link_to("プロフィール","#",class:"side_menu-items")
       %li 
-        = link_to('支払い方法', root_path,class:"side_menu-items")
+        = link_to('支払い方法', "#",class:"side_menu-items")
       %li 
-        = link_to("メールアドレス/パスワード",root_path,class:"side_menu-items")
+        = link_to("メールアドレス/パスワード","#",class:"side_menu-items")
       %li 
-        = link_to('出品する', root_path,class:"side_menu-items")
+        = link_to('出品する', "#",class:"side_menu-items")
         
   .main-content
     .user-icon
@@ -39,4 +39,4 @@
       %li
         = link_to('ログアウトする',destroy_user_session_path,method: :delete,class:"function-logout")
       %li
-        = link_to('クレジットカードの登録/変更',root_path,class:"function-creditcard")
+        = link_to('クレジットカードの登録/変更',"#",class:"function-creditcard")
