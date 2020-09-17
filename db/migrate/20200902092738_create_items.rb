@@ -9,6 +9,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :payer_id
       t.string :preparation_day_id
       t.integer :price
+      t.references :user,foreign_key: true
       t.timestamps
     end
   end
