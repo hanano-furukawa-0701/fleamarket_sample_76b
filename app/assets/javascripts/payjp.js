@@ -4,10 +4,10 @@ $(function(){
     $('#token_submit').on('click',function(e){
       e.preventDefault();
       var card = {
-        card_number: $('#card_number').val();
-        expiration_month: $('#expiration_month').val();
-        expiration_year: $('#expiration_year').val();
-        security_cord: $('#security_cord').val();
+        number: $('#card_number').val(),
+        exp_month: $('#expiration_month').val(),
+        exp_year: $('#expiration_year').val(),
+        cvc: $('#security_cord').val()
       };
 
       Payjp.createToken(card, function(status, response){
@@ -16,17 +16,17 @@ $(function(){
           $('#expiration_month').removeAttr('name');
           $('#expiration_year').removeAttr('name');
           $('#security_cord').removeAttr('name');
-          var  token = response.id;
-          $('#credit-card__form__add').append(
-            $(`<input type="hidden" name="payjp-token" value=${token}>`)
+          $('#card-new__form__add').append(
+            $(`<input type="hidden" name="payjp-token">`).val(response.id)
           );
-          $('inputForm').get(0).submit();
-          arert("登録が完了しました");
+          document.inputForm.submit();
+          alert("登録が完了しました");
         } else {
           alert("カード情報が正しくありません。");
+          console.log(response);
         }
       });
     });
-  },
+  }
   false
 });

@@ -1,26 +1,32 @@
-.credit-card
-  .credit-card__title
+.card-new
+  .card-new__title
     %h2 クレジットカード情報入力
-  .credit-card__form
+  .card-new__form
     = form_with url: credit_cards_path, method: :post, html: { name: "inputForm" } do |f|
-    .credit-card__form__number
-      = f.label :カード番号, class: 'credit-card__form__number__label'
-      %span 必須
-      = f.text_field :card_number, type: 'text', class: 'credit-card__form__number__input', placeholder: '半角数字のみ', maxlength: '16', id: 'card_number'
-    .credit-card__form__expiration
-      = f.label :有効期限, class: 'credit-card__form__expiration__label'
-      %span 必須
-      .credit-card__form__expiration__input
-        = f.select :expiration_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'credit-card__form__expiration__input__mounth', id: 'expiration_month'
-        %span 月
-      .credit-card__form__expiration__input
-        = f.select :expiration_year, [["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'credit-card__form__expiration__input__year', id: 'expiration_year'
-        %span 年
-    .credit-card__form__security
-      = f.label :セキュリティコード, class: 'credit-card__form__security__label'
-      %span 必須
-      = f.text_field :security_cord, type: 'text', class: 'credit-card__form__security__input', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: '4', id: 'security_cord'
-    #credit-card__form__add
-      = f.submit '追加する', id: 'token_submit'
-    .credit-card__form__return
-      = link_to '戻る', '#'
+      .card-new__form__number
+        = f.label :カード番号, class: 'card-new__form__number__label'
+        %span 必須
+        = f.text_field :number, type: 'text', class: 'card-new__form__number__input', placeholder: ' 半角数字のみ', maxlength: '16', id: 'card_number'
+        = image_tag 'https://checkout.pay.jp/images/creditcard/visa.png'
+        = image_tag 'https://checkout.pay.jp/images/creditcard/mastercard.png'
+        = image_tag 'https://checkout.pay.jp/images/creditcard/jcb.png'
+        = image_tag 'https://checkout.pay.jp/images/creditcard/americanExpress.png'
+        = image_tag 'https://checkout.pay.jp/images/creditcard/dinersClub.png'
+        = image_tag 'https://checkout.pay.jp/images/creditcard/discover.png'
+      .card-new__form__expiration
+        = f.label :有効期限, class: 'card-new__form__expiration__label'
+        %span 必須
+        .card-new__form__expiration__input
+          = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'card-new__form__expiration__input__mounth', id: 'expiration_month'
+          %span 月
+          = f.select :exp_year, [["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'card-new__form__expiration__input__year', id: 'expiration_year'
+          %span 年
+      .card-new__form__security
+        = f.label :セキュリティコード, class: 'card-new__form__security__label'
+        %span 必須
+        = f.text_field :cvc, type: 'text', class: 'card-new__form__security__input', placeholder: ' カード背面4桁もしくは3桁の番号', maxlength: '4', id: 'security_cord'
+        = link_to  '#' do
+          = icon('fas', 'question-circle')
+          カード裏面の番号とは？
+      #card-new__form__add
+        = f.submit '追加する', id: 'token_submit'

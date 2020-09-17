@@ -1,5 +1,6 @@
 商品購入ページ
 
-
+-# 購入ボタン
 = form_tag(action: :pay, method: :post) do
-  %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_360fd4bb979cfcc120875ec4"}
+  %button.pay-button
+    購入する
