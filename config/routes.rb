@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+
+  root 'items#index'
+  resources :users,only: [:show]
+  
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
