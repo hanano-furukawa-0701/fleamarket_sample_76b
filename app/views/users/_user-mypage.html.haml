@@ -34,8 +34,7 @@
       .user-photo
         = image_tag "member_photo_noimage_thumb.png", size:"60x60",alt:"アイコン"
       .user-name
-        %p 
-          =@Nickname
+        =@Nickname
     %ul.mypage-function
       %li
         = link_to('ログアウトする',destroy_user_session_path,method: :delete,class:"function-logout")
