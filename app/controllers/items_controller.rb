@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
 before_action :set_item, except: [:index, :new, :create]
+before_action :set_card, only: [:purchase, :pay]
 
   def index
     @items = Item.includes(:images).order('created_at DESC')
@@ -39,27 +40,25 @@ before_action :set_item, except: [:index, :new, :create]
   end
   
   def purchase
-    credit_card = CreditCard.where(user_id: current_user.id).first
-    if credit_card.blank?
-    else
+    if @credit_card.present?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(credit_card.customer_id)
-      @default_card_infomation = customer.cards.retrieve(credit_card.card_id)
+      customer = Payjp::Customer.retrieve(@credit_card.customer_id)
+      @default_card_infomation = customer.cards.retrieve(@credit_card.card_id)
     end
   end
 
   def pay
-    credit_card = CreditCard.where(user_id: current_user.id).first
+    @credit_card = CreditCard.where(user_id: current_user.id).first
     if @item.buyer_id.present?
       redirect_to action: 'index'
-    elsif credit_card.blank?
+    elsif @credit_card.blank?
       redirect_to controller: "credit_cards", action: "new"
       flash[:alert] = '購入にはクレジットカードが必要です'
     else
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
       Payjp::Charge.create(
         amount: @item.price,
-        customer: credit_card.customer_id,
+        customer: @credit_card.customer_id,
         currency: 'jpy'
       )
       @item.update(buyer_id: current_user.id)
@@ -77,6 +76,10 @@ before_action :set_item, except: [:index, :new, :create]
   
   def set_item
     @item =Item.find(params[:id])
+  end
+
+  def set_card
+    @credit_card = CreditCard.where(user_id: current_user.id).first
   end
 
 

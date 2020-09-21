@@ -1,19 +1,18 @@
 class CreditCardsController < ApplicationController
+  before_action :set_card, except: [:create]
 
   def index
-    credit_card = CreditCard.where(user_id: current_user.id).first
-    if credit_card.blank?
+    if @credit_card.blank?
       redirect_to action: "new"
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(credit_card.customer_id)
-      @default_card_infomation = customer.cards.retrieve(credit_card.card_id)
+      customer = Payjp::Customer.retrieve(@credit_card.customer_id)
+      @default_card_infomation = customer.cards.retrieve(@credit_card.card_id)
     end
   end
 
   def new
-    credit_card = CreditCard.where(user_id: current_user.id)
-    redirect_to action: "index" if credit_card.present?
+    redirect_to action: "index" if @credit_card.present?
   end
 
   def create
@@ -37,16 +36,19 @@ class CreditCardsController < ApplicationController
   end
 
   def destroy
-    credit_card = CreditCard.where(user_id: current_user.id).first
-    if credit_card.blank?
-    else
+    if @credit_card.present?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(credit_card.customer_id)
+      customer = Payjp::Customer.retrieve(@credit_card.customer_id)
       customer.delete
-      credit_card.delete
+      @credit_card.delete
+      redirect_to action: "new"
+      flash[:notice] = 'クレジットカードを削除しました'
     end
-    redirect_to action: "new"
-    flash[:notice] = 'クレジットカードを削除しました'
+  end
+
+  private
+  def set_card
+    @credit_card = CreditCard.where(user_id: current_user.id).first 
   end
 
 end
