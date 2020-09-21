@@ -1,0 +1,96 @@
+.header{
+  padding: 0 60px;
+  .header-inner{
+    max-width: 1040px;
+    width: 100%;
+    min-height: 82px;
+    margin: 0 auto;
+    padding: 15px 0 0;
+
+    .header-main{
+      position: relative;
+      display: flex;
+      align-items: center;
+      .header-logo{
+        padding-bottom: 10px;
+        margin-right: 30px;
+        border-radius: 4px;
+        vertical-align: bottom;
+      }
+      .header-search-box{
+        width: 100%;
+        margin-left: auto;
+        display: flex;
+        justify-content: center;
+
+
+
+        .header-search-form{
+          width: calc(100% - 26px);
+          height: 32px;
+          padding: 0 0 0 5px;
+          margin-bottom: 5px;
+        }
+        .search-button{
+          width: 36px;
+          height: 36px;
+          border: 0;
+          cursor: pointer;
+          background-color: #3CCACE;
+          padding: 8px;
+          margin-bottom: 5px;
+        }
+
+      }  
+    }
+    .nav-bar{
+      font-size: 14px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      .seach-list{
+        display: flex;
+        text-decoration: none;
+        padding: 0;
+        line-height: 38px;
+        .search-category{
+          color: #333;
+          text-decoration: none;
+          background-position: right;
+          background-repeat: no-repeat;
+          background-size: 18px;
+          padding-right: 30px;
+        }
+        .search-brand{
+          color: #333;
+          text-decoration: none;
+          background-position: right;
+          background-repeat: no-repeat;
+          background-size: 18px;
+          padding-right: 30px;
+
+        }
+
+      }
+      .member-menu-list{
+        display: flex;
+        .login{
+          color: #333;
+          text-decoration: none;
+          background-position: right;
+          background-repeat: no-repeat;
+          background-size: 18px;
+          padding-left: 16px;
+        }
+        .signup{
+          color: #333;
+          text-decoration: none;
+          background-position: right;
+          background-repeat: no-repeat;
+          background-size: 18px;
+          padding-left: 16px;
+        }
+      }
+    }
+  }
+}

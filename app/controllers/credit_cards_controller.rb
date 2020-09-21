@@ -45,7 +45,8 @@ class CreditCardsController < ApplicationController
       customer.delete
       credit_card.delete
     end
-    redirect_to action: "new", notice: '削除しました'
+    redirect_to action: "new"
+    flash[:notice] = 'クレジットカードを削除しました'
   end
 
 end

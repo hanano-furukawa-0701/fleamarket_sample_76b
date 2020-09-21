@@ -13,9 +13,9 @@
               必須
           .namebox
             .field
-              = f.text_field :destination_first_name, :size=>"15",autofocus: true, autocomplete: "destination_first_name",placeholder: "山田"
+              = f.text_field :destination_first_name, :size=>"15",autofocus: true, autocomplete: "destination_first_name",placeholder: "例）山田"
             .field
-              = f.text_field :destination_family_name, :size=>"15",autofocus: true, autocomplete: "destination_family_name",placeholder: "太郎"
+              = f.text_field :destination_family_name, :size=>"15",autofocus: true, autocomplete: "destination_family_name",placeholder: "例）太郎"
 
       .name
         .field
@@ -87,9 +87,8 @@
       .actions
         = f.submit "次へ進む",class:"btn"
               
-
-
-
+= render "bottom_banner"
+= render "footer"
 
 
 
