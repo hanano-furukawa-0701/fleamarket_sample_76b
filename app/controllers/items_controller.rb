@@ -33,12 +33,14 @@ before_action :set_item, except: [:index, :new, :create]
   end
     
   def destroy
+    @item.destroy
+    redirect_to roo
   end
 
 
   private
   def item_params
-    params.require(:item).permit(:name, :explanation, :price, :condition_id, :payer_id, :preparation_day_id, :prefecture_id, images_attributes: [:url, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :explanation, :category, :price, :condition_id, :payer_id, :preparation_day_id, :prefecture_id, images_attributes: [:url, :_destroy, :id]).merge(user_id: current_user.id)
   end
   
   def set_item

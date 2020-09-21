@@ -11,7 +11,11 @@
           最大10枚までアップロードできます
         .contents_body_exhibit_image
         #image-box
-        = f.file_field :image
+        = f.fields_for :images do |image|
+          .js-file_group{"data-index" => "#{image.index}"}
+            = image.file_field :url, class: 'js-file'
+            %br/
+            %span.js-remove 削除
         
       .contents_body_name
         .contents_body_name_box
@@ -81,15 +85,26 @@
             価格（￥300〜￥9,999,999）
           =f.label :販売価格,{class:'preparationdays'}
           =f.label :必須, { class: 'mustcondition' }
-          ￥#{f.number_field :price}
-          %br/
+          .contents_body_shipping_price_form
+            ¥
+            %input#price_calc.price_form-box{placeholder: "例) 300", type: "number"}/
+        .contents_body_shipping_price_fee
           販売手数料(10%)             
-        .contents_body_shipping_fee
+          .contents_body_shipping_price_fee_right_bar
+            
+        .contents_body_shipping_profit
           販売利益
+          .contents_body_shipping_profit_right_bar2
+            
         .contents_body_shipping_btn
           = f.submit '出品する',class:'submit_btn'
+            
+
+
         .contents_body_shipping_back
           =  link_to'もどる',root_path,class:'back_btn'
+
+
 = render "bottom_banner"
 = render "footer"
 
