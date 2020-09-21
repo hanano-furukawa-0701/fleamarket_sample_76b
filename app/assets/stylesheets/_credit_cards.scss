@@ -1,0 +1,137 @@
+@mixin mandatory {
+  span {
+    color: white;
+    font-size: 12px;
+    background-color: red;
+    padding: 2px 5px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.card-index {
+  &__title {
+    text-align: center;
+    margin: 40px 0 20px;
+    h2 {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+  &__contents {
+    width: 350px;
+    margin: 0 auto;
+    h3 {
+      font-size: 14px;
+      font-weight: bold;
+      padding: 20px 0 25px;
+    }
+    &__block {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px 35px;
+      &__details {
+        font-size: 13px;
+      }
+      &__delete {
+        border: 1px solid red; 
+        border-radius: 5px;
+        width: 90px;
+        height: 35px;
+        text-align: center;
+        line-height: 35px;
+        a {
+          color: red;
+          font-weight: bold;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+.card-new {
+  a {
+    color: blue;
+    font-weight: normal;
+  }
+  &__title {
+    text-align: center;
+    margin: 40px 0 20px;
+    h2 {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+
+  &__form {
+    font-size: 14px;
+    font-weight: bold;
+    width: 350px;
+    margin: 0 auto;
+    &__number {
+      padding: 10px 0;
+      @include mandatory();
+      input {
+        width: 350px;
+        height: 50px;
+        display: block;
+        margin: 5px 0;
+        font-weight: normal;
+      }
+      img {
+        width: 35px;
+        margin-left: 5px;
+      }
+    }
+    &__expiration {
+      padding: 10px 0;
+      @include mandatory();
+      &__input {
+        margin: 5px 0;
+        select {
+          width: 120px;
+          height: 50px;
+          font-weight: normal;
+        }
+        span {
+          color: black;
+          background-color: white;
+          padding: 0 16px;
+        }
+      }
+    }
+    &__security {
+      padding: 10px 0;
+      @include mandatory();
+      &__input {
+        width: 350px;
+        height: 50px;
+        display: block;
+        margin: 5px 0;
+        font-weight: normal;
+      }
+      a {
+        display: block;
+        text-align: right;
+      }
+    }
+    #card-new__form__add {
+      margin: 20px 0;
+      text-align: center;
+      input {
+        width: 350px;
+        height: 40px;
+        background-color: #3CCACE;
+        margin: 0 auto;
+        border: none;
+        color: white;
+        font-size: 18px;
+        border-radius: 5px;
+      }
+    }
+  }
+}

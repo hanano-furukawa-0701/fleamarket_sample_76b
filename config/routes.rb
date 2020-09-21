@@ -12,5 +12,19 @@ Rails.application.routes.draw do
     post 'sending_destinations', to: 'users/registrations#create_sending_destinations'
   end
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'items#index'
+
+
+
+
+  resources :items, only: [:index, :show] do
+    member do
+      get 'purchase', to: 'items#purchase'
+      post 'pay', to: 'items#pay'
+      get 'done', to: 'items#done'
+    end
+  end
+
+  resources :credit_cards, only: [:index, :new, :create, :destroy]
+
 end

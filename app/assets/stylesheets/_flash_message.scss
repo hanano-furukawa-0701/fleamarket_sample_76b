@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+.notifications {
+  color: white;
+  text-align: center;
+  .notice {
+    background-color: lightblue;
+  }
+  
+  .alert {
+    background-color: orange;
+  }
+}

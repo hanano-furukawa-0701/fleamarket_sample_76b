@@ -46,6 +46,10 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -78,6 +82,9 @@ gem 'devise'
 gem 'jp_prefecture'
 gem 'jquery-rails' 
 gem 'simple_form'
+gem 'payjp'
+gem 'pry-rails'
 gem 'active_hash', '~> 2.3.0' 
 gem 'carrierwave'
 gem 'mini_magick'
+
