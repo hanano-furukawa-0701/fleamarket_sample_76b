@@ -8,6 +8,23 @@ Rails.application.routes.draw do
   end
 
   root 'items#index'
-  resources :items
+  resources :users,only: [:show]
   
+  
+
+  root 'items#index'
+
+
+
+
+  resources :items, only: [:index, :show] do
+    member do
+      get 'purchase', to: 'items#purchase'
+      post 'pay', to: 'items#pay'
+      get 'done', to: 'items#done'
+    end
+  end
+
+  resources :credit_cards, only: [:index, :new, :create, :destroy]
+
 end
