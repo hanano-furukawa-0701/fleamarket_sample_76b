@@ -36,10 +36,6 @@ before_action :set_card, only: [:purchase, :pay]
   def edit
   end
     
-  def destroy
-    @item.destroy
-    redirect_to roo
-  end
   
   def purchase
     if @credit_card.present?
