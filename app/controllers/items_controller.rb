@@ -21,6 +21,7 @@ before_action :set_card, only: [:purchase, :pay]
   end
 
   def show
+    @item
   end
 
 
