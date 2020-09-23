@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
 
 
-  resources :items, only: [:index, :show] do
+  resources :items, only: [:index, :new,:create,:show] do
     member do
       get 'purchase', to: 'items#purchase'
       post 'pay', to: 'items#pay'
