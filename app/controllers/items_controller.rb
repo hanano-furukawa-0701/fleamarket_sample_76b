@@ -36,8 +36,6 @@ before_action :set_card, only: [:purchase, :pay]
   def edit
   end
     
-  def destroy
-  end
   
   def purchase
     if @credit_card.present?
@@ -71,7 +69,7 @@ before_action :set_card, only: [:purchase, :pay]
 
   private
   def item_params
-    params.require(:item).permit(:name, :explanation, :price, :condition_id, :payer_id, :preparation_day_id, :prefecture_id, images_attributes: [:url, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :explanation, :category, :price, :condition_id, :payer_id, :preparation_day_id, :prefecture_id, images_attributes: [:url, :_destroy, :id]).merge(user_id: current_user.id)
   end
   
   def set_item
