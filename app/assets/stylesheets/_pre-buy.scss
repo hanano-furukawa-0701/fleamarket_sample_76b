@@ -1,0 +1,142 @@
+@mixin placement{
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+@mixin border-line{
+  border-top:solid 1px #eee;
+}
+.wrapper{
+//  position: relative;
+  .header{
+    height:56px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    border-bottom: solid 1px #eee;
+    .logo{}
+  }
+  .contents{
+    .title{
+      @include placement;
+      text-align: center;
+      h2{
+        font-size:17px;
+        line-height:24px;
+        margin:0;
+        padding: 0;
+      }
+    }
+    .product-details-box{
+      @include border-line;
+      @include placement;
+      display:flex;
+      margin:0 auto;
+      .product-photo{
+        height:80px;
+        width:80px;
+        background-color:green;
+      }
+      .product-details{
+        width:calc(100% - 90px);
+        margin-left:16px;
+        .product-name{
+          font-size:14px;
+          line-height:1.4em;
+          margin-bottom:8px;
+        }
+        .product-price{
+          text-align:right;
+          
+          p{
+            float:left;
+            font-size:12px;
+          }
+          .price{
+            font-size:15px;
+            font-weight:600;
+            margin-left:8px;
+          }
+        }
+      }
+    }
+    .tortal-price-box{
+      @include border-line;
+      @include placement;
+      display:flex;
+      font-size:18px;
+      font-weight:600;
+      justify-content:space-between;
+      align-items:center;
+      .tortal-price{
+        font-size:24px;
+      }
+    }
+    .payment-method{
+      @include border-line;
+      @include placement;
+      font-size:14px;
+      font-weight:600;
+      .payment-list{}
+    }
+    .shipping-address{
+      @include border-line;
+      @include placement;
+      font-size:14px;
+      font-weight:600;
+      .address-list{}
+    }
+    .buy-button{
+      @include border-line;
+      @include placement;
+      .notification{
+        color:rgb(255,2,17);
+        font-size:14px;
+        line-height:1.5;
+        margin-bottom:24px;
+      }
+      .buy-btn{
+        background-color:#ccc;
+        color:#888;
+        //条件分岐で購入可能時赤くなる
+        //background-color:#ea352d;
+        //color:#fff;
+        font-size:17px;
+        min-height:48px;
+        padding:0 24px;
+        width:100%;
+        border-radius: 4px;
+        border: 1px solid transparent;
+        box-sizing: border-box;
+        display: inline-block;
+        font-weight: 600;
+        line-height: 1;
+        overflow: hidden;
+        text-align: center;
+        text-decoration: none;
+      }
+    }
+  }
+  .footer{
+//    position: absolute;
+//    bottom: 0;
+//    background-color: #eee;
+    @include border-line;
+    align-items: center;
+    .footer-list{
+      text-align: center;
+      text-decoration:none;
+      font-size:12px;
+      li{
+        text-decoration: none;
+      }
+    }
+    .footer-logo{
+      margin: auto;
+      align-items: center;
+      height: 41px;
+      width: 150px;
+      background-color: #eee;
+    }
+  }
+}
