@@ -1,0 +1,42 @@
+.wrapper
+  .header
+    .logo
+      = image_tag 'material/logo/logo.png',size:"140x41",alt:"ロゴ"
+  .contents
+    .title
+      %h2 購入内容の確認
+    .product-details-box
+      .product-photo
+        写真
+      .product-details
+        .product-name
+          %p【着画】ナイキ NIKE 刺繍ロゴ パーカー スウェット ブルー 青 古着
+        .product-price
+          %p 送料込み(税込)
+          .price
+            ￥2,000
+    .tortal-price-box
+      %p 支払い金額
+      .tortal-price
+        ￥2,000
+    .payment-method
+      %h3 支払い方法
+      .payment-list
+    .shipping-address
+      配送先
+      .address-list
+    .buy-button
+      .notification
+        配送先と支払い方法の入力を完了してください。
+      %button{type:"submit",class:"buy-btn" }
+        購入する
+  .footer
+    %ul.footer-list
+      %li 
+        =link_to("プライバシーポリシー",root_path)
+      %li 
+        =link_to("メルカリ利用規約",root_path)
+      %li 
+        =link_to("特定商取引に関する表記",root_path)
+    .footer-logo
+      = image_tag 'logo-white.png',size:"140x41",alt: 'ロゴ'
