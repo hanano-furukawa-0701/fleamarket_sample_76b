@@ -1,3 +1,5 @@
+.header
+  = image_tag 'logo.png',size:"140x41",alt:"ロゴ",class:"logo"
 .content
   .content_body
     %h2 住所情報登録
@@ -44,11 +46,6 @@
               必須
             %br/
           = f.collection_select :prefecture_name, JpPrefecture::Prefecture.all, :name, :name, include_blank: true, prompt: "選択してください"
-              
-          -#   .mustbox
-          -#     必須
-          -#   %br/
-          -# = f.text_field :prefecture_code,:size=>"38", autofocus: true, autocomplete: "prefecture_code",placeholder: "例）北海道"
       .name
         .field
           .field_three
@@ -88,7 +85,6 @@
         = f.submit "次へ進む",class:"btn"
 
               
-= render "items/bottom_banner"
 = render "items/footer"
 
 

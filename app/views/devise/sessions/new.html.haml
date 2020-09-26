@@ -1,4 +1,6 @@
-.contentall
+
+.header
+  = image_tag 'logo.png',size:"140x41",alt:"ロゴ",class:"logo"
 .content
   .content_body
     .text
@@ -25,6 +27,8 @@
       .actions
         = f.submit "ログイン",class:"btn"
       .box
+
+= render "items/footer"
 
 
 

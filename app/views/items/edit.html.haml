@@ -1,43 +1,5 @@
-= form_for @item do |f|
-  商品名#{f.text_field :name}
-  %br/
-  説明#{f.text_field :explanation}
-  %br/
-  価格#{f.number_field :price}
-  %br/
-  -# カテゴリー#{f.search_field :category_id}
-  -# %br/
-  #image-box
-    = f.fields_for :images do |image|
-      .js-file_group{"data-index" => "#{image.index}"}
-        = image.file_field :url, class: 'js-file'
-        %br/
-        %span.js-remove 削除
-
-  .conditionform 
-    =f.label :商品状態,{class:'itemcondition'}
-    = f.label :必須, { class: 'mustcondition' }
-    .condition-select-wrap
-      = f.collection_select :condition_id, Condition.all, :id, :name, {},{}
-
-  .conditionform 
-    =f.label :配送料の負担,{class:'payer'}
-    = f.label :必須, { class: 'mustcondition' }
-    .condition-select-wrap
-      = f.collection_select :payer_id, Payer.all, :id, :name, {},{}
-
-  .conditionform 
-    =f.label :発送までの日数,{class:'preparationdays'}
-    = f.label :必須, { class: 'mustcondition' }
-    .condition-select-wrap
-      = f.collection_select :preparation_day_id, PreparationDay.all, :id, :name, {},{}
-
-  .conditionform 
-    =f.label :発送元の地域,{class:'prefecture'}
-    = f.label :必須, { class: 'mustcondition' }
-    .condition-select-wrap
-      = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {},{}
-
-  = f.submit
-
-= render "footer"
+.a
+  = @items.each do |item|
+    item.price
+    item.name
+    item.images
