@@ -46,14 +46,14 @@
           .contents_body_details_category_must
             必須
         .contents_body_details_categoryfield
-          = f.text_field :name,:size=>"38", autofocus: true, autocomplete: "category",placeholder: "例）"
+          = f.text_field :category,:size=>"38", autofocus: true, autocomplete: "category",placeholder: "例）"
       
         .contents_body_details_brand
           =f.label :ブランド
           .contents_body_details_brand_any
             任意
         .contents_body_details_field
-          = f.text_field :name, :size=>"50",autofocus: true, autocomplete: "brand",placeholder: "例）シャネル"
+          = f.text_field :brand, :size=>"50",autofocus: true, autocomplete: "brand",placeholder: "例）シャネル"
         .contents_body_details_conditionbox
           =f.label :商品の状態
           .contents_body_details_conditionbox_must
@@ -89,7 +89,7 @@
           =f.label :必須, { class: 'mustcondition' }
           .contents_body_shipping_price_form
             ¥
-            %input#price_calc.price_form-box{placeholder: "例) 300", type: "number"}/
+            =f.number_field :price, :size=>"50"
         .contents_body_shipping_price_fee
           販売手数料(10%)             
           .contents_body_shipping_price_fee_right_bar
