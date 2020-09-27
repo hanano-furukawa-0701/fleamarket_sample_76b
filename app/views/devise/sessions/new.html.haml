@@ -1,8 +1,10 @@
-.contentall
+
+.header
+  = image_tag 'logo.png',size:"140x41",alt:"ロゴ",class:"logo"
 .content
   .content_body
     .text
-      アカウントをお持ちでない方はこちら
+      アカウントをお持ちでない方はこちら。
       .text_new
         .text_new_regist
           =link_to"新規会員登録",new_user_registration_path
@@ -25,6 +27,8 @@
       .actions
         = f.submit "ログイン",class:"btn"
       .box
+
+= render "items/footer"
 
 
 

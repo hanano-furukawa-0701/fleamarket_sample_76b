@@ -1,89 +1,29 @@
 .item-introduction
   %h2.item-introduction__title
     商品一覧
-  .item-introduction__list
-    = link_to '#', class: "item-introduction__list__title" do
+  .item-introduction__new
+    = link_to 'items/new', class: "item-introduction__list__title" do
       %h3 新規投稿商品
+  .item-introduction__list
     .item-introduction__list__block
+    - @items.each do |item|
       .item-introduction__list__block__box
-        = link_to '#', class: "item-introduction__list__block__box__content" do
+        = link_to item_path(item.id),class: "item-introduction__list__block__box__content" do
           .item-introduction__list__block__box__content__top
-            = image_tag "https://img.fril.jp/img/254372826/l/720448964.jpg?1566877916"
+            = image_tag item.images.first.url.url
           .item-introduction__list__block__box__content__bottom
             %h3.item-introduction__list__block__box__content__bottom__name
-              apple watch
+            =item.name
             .item-introduction__list__block__box__content__bottom__details
-              %ul
-                %li.item-introduction__list__block__box__content__bottom__details__price
-                  10000円
-                %li.item-introduction__list__block__box__content__bottom__details__like
+              .item-introduction__list__block__box__content__bottom__details_box
+                .item-introduction__list__block__box__content__bottom__details__box__price
+                  =item.price
+                .item-introduction__list__block__box__content__bottom__details__box__like
                   = icon('fas', 'star') 
                   2
               %p.item-introduction__list__block__box__content__bottom__details__tax
                 （税込）
-      .item-introduction__list__block__box
-        = link_to '#', class: "item-introduction__list__block__box__content" do
-          .item-introduction__list__block__box__content__top
-            = image_tag "https://item-shopping.c.yimg.jp/i/n/edc_6015-fb1"
-          .item-introduction__list__block__box__content__bottom
-            %h3.item-introduction__list__block__box__content__bottom__name
-              RITZENHOFF
-            .item-introduction__list__block__box__content__bottom__details
-              %ul
-                %li.item-introduction__list__block__box__content__bottom__details__price
-                  10000円
-                %li.item-introduction__list__block__box__content__bottom__details__like
-                  = icon('fas', 'star') 
-                  1
-              %p.item-introduction__list__block__box__content__bottom__details__tax
-                （税込）
-      .item-introduction__list__block__box
-        = link_to '#', class: "item-introduction__list__block__box__content" do
-          .item-introduction__list__block__box__content__top
-            = image_tag "https://static.wixstatic.com/media/78d913_d399308f37cd44d48806adcc5fbd9324~mv2.jpg/v1/fill/w_600,h_600,al_c,lg_1,q_85/78d913_d399308f37cd44d48806adcc5fbd9324~mv2.webp"
-          .item-introduction__list__block__box__content__bottom
-            %h3.item-introduction__list__block__box__content__bottom__name
-              apple 
-            .item-introduction__list__block__box__content__bottom__details
-              %ul
-                %li.item-introduction__list__block__box__content__bottom__details__price
-                  10000円
-                %li.item-introduction__list__block__box__content__bottom__details__like
-                  = icon('fas', 'star') 
-                  1
-              %p.item-introduction__list__block__box__content__bottom__details__tax
-                （税込）
-      .item-introduction__list__block__box
-        = link_to '#', class: "item-introduction__list__block__box__content" do
-          .item-introduction__list__block__box__content__top
-            = image_tag "https://d3vgbguy0yofad.cloudfront.net/images/og/beverage.jpg"
-          .item-introduction__list__block__box__content__bottom
-            %h3.item-introduction__list__block__box__content__bottom__name
-              Starbucks Coffee
-            .item-introduction__list__block__box__content__bottom__details
-              %ul
-                %li.item-introduction__list__block__box__content__bottom__details__price
-                  10000円
-                %li.item-introduction__list__block__box__content__bottom__details__like
-                  = icon('fas', 'star') 
-                  4
-              %p.item-introduction__list__block__box__content__bottom__details__tax
-                （税込）
-      .item-introduction__list__block__box
-        = link_to '#', class: "item-introduction__list__block__box__content" do
-          .item-introduction__list__block__box__content__top
-            = image_tag "https://contents.oricon.co.jp/upimg/news/20180303/2106733_201803030815840001520038960c.jpg"
-          .item-introduction__list__block__box__content__bottom
-            %h3.item-introduction__list__block__box__content__bottom__name
-              Sheena Ringo
-            .item-introduction__list__block__box__content__bottom__details
-              %ul
-                %li.item-introduction__list__block__box__content__bottom__details__price
-                  10000円
-                %li.item-introduction__list__block__box__content__bottom__details__like
-                  = icon('fas', 'star') 
-                  3
-              %p.item-introduction__list__block__box__content__bottom__details__tax
-                （税込）
-              %p.item-introduction__list__block__box__content__botto
-
+      
+      
+      
+      

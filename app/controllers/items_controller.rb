@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-before_action :set_item, except: [:index, :new, :create]
+before_action :set_item, except: [:index, :new, :create, ]
 before_action :set_card, only: [:purchase, :pay]
 
   def index
@@ -21,6 +21,7 @@ before_action :set_card, only: [:purchase, :pay]
   end
 
   def show
+    @item
   end
 
 
@@ -34,6 +35,7 @@ before_action :set_card, only: [:purchase, :pay]
 
   
   def edit
+    
   end
     
   
