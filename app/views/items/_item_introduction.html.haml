@@ -5,22 +5,23 @@
     = link_to '#', class: "item-introduction__list__title" do
       %h3 新規投稿商品
     .item-introduction__list__block
-      .item-introduction__list__block__box
-        = link_to '#', class: "item-introduction__list__block__box__content" do
-          .item-introduction__list__block__box__content__top
-            = image_tag "https://img.fril.jp/img/254372826/l/720448964.jpg?1566877916"
-          .item-introduction__list__block__box__content__bottom
-            %h3.item-introduction__list__block__box__content__bottom__name
-              apple watch
-            .item-introduction__list__block__box__content__bottom__details
-              %ul
-                %li.item-introduction__list__block__box__content__bottom__details__price
-                  10000円
-                %li.item-introduction__list__block__box__content__bottom__details__like
-                  = icon('fas', 'star') 
-                  2
-              %p.item-introduction__list__block__box__content__bottom__details__tax
-                （税込）
+      - @items.each do |item|
+        .item-introduction__list__block__box
+          = link_to item_path(id), class: "item-introduction__list__block__box__content" do
+            .item-introduction__list__block__box__content__top
+              = image_tag item.image
+            .item-introduction__list__block__box__content__bottom
+              %h3.item-introduction__list__block__box__content__bottom__name
+                = item.name
+              .item-introduction__list__block__box__content__bottom__details
+                %ul
+                  %li.item-introduction__list__block__box__content__bottom__details__price
+                    = item.price
+                  %li.item-introduction__list__block__box__content__bottom__details__like
+                    = icon('fas', 'star') 
+                    2
+                %p.item-introduction__list__block__box__content__bottom__details__tax
+                  （税込）
       .item-introduction__list__block__box
         = link_to '#', class: "item-introduction__list__block__box__content" do
           .item-introduction__list__block__box__content__top
