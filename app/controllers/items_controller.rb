@@ -41,7 +41,7 @@ before_action :set_card, only: [:purchase, :pay]
   
   def purchase
     if @credit_card.present?
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
       customer = Payjp::Customer.retrieve(@credit_card.customer_id)
       @default_card_infomation = customer.cards.retrieve(@credit_card.card_id)
     end
@@ -55,7 +55,7 @@ before_action :set_card, only: [:purchase, :pay]
       redirect_to controller: "credit_cards", action: "new"
       flash[:alert] = '購入にはクレジットカードが必要です'
     else
-      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
       Payjp::Charge.create(
         amount: @item.price,
         customer: @credit_card.customer_id,
