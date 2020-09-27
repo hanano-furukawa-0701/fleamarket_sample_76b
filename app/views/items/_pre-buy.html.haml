@@ -1,7 +1,8 @@
 .wrapper
   .header
     .logo
-      = image_tag 'material/logo/logo.png',size:"140x41",alt:"ロゴ"
+      = link_to '/' do
+        = image_tag 'material/logo/logo.png',size:"140x41",alt:"ロゴ"
   .contents
     .title
       %h2 購入内容の確認
@@ -21,7 +22,15 @@
         ￥2,000
     .payment-method
       %h3 支払い方法
-      .payment-list
+      - if @default_card_infomation.blank?
+        %p 未設定
+      - else
+        = '**** **** ****' + @default_card_infomation.last4 
+        - exp_month = @default_card_infomation.exp_month.to_s
+        - exp_year = @default_card_infomation.exp_year.to_s.slice(2,3)
+      %br
+        = '有効期限' + exp_month + '/' + exp_year
+
     .shipping-address
       配送先
       .address-list
