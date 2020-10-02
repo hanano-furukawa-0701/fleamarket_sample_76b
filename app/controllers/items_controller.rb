@@ -1,9 +1,10 @@
 class ItemsController < ApplicationController
+before_action :access_restrictions, except: [:index, :show]
 before_action :set_item, except: [:index, :new, :create, ]
 before_action :set_card, only: [:purchase, :pay]
 
   def index
-    @items = Item.includes(:images).order('created_at DESC')
+    @items = Item.includes(:images).limit(5).order('created_at DESC')
   end
 
   def new
@@ -74,16 +75,21 @@ before_action :set_card, only: [:purchase, :pay]
     params.require(:item).permit(:name, :explanation, :category, :price, :condition_id, :payer_id, :preparation_day_id, :prefecture_id, images_attributes: [:url, :_destroy, :id]).merge(user_id: current_user.id)
   end
   
+  def access_restrictions
+    unless user_signed_in?
+      flash[:alert] = 'ログインが必要です' 
+      redirect_to new_user_session_path 
+    end
+  end
+
   def set_item
     @item =Item.find(params[:id])
   end
+  
 
   def set_card
     @credit_card = CreditCard.where(user_id: current_user.id).first
   end
-
-
-
 
 end
 

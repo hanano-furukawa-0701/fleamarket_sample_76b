@@ -11,13 +11,18 @@
         = link_to item_path(item.id),class: "item-introduction__list__block__box__content" do
           .item-introduction__list__block__box__content__top
             = image_tag item.images.first.url.url
+            - if item.buyer_id.present?
+              .item-introduction__list__block__box__content__top__sold
+                .item-introduction__list__block__box__content__top__sold__inner
+                  SOLD
           .item-introduction__list__block__box__content__bottom
             %h3.item-introduction__list__block__box__content__bottom__name
-            =item.name
+              =item.name
             .item-introduction__list__block__box__content__bottom__details
               .item-introduction__list__block__box__content__bottom__details_box
                 .item-introduction__list__block__box__content__bottom__details__box__price
-                  =item.price
+                  = item.price 
+                  円
                 .item-introduction__list__block__box__content__bottom__details__box__like
                   = icon('fas', 'star') 
                   2
