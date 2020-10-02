@@ -1,4 +1,5 @@
 class CreditCardsController < ApplicationController
+  before_action :access_restrictions
   before_action :set_card, except: [:create]
 
   def index
@@ -47,6 +48,14 @@ class CreditCardsController < ApplicationController
   end
 
   private
+
+  def access_restrictions
+    unless user_signed_in?
+      flash[:alert] = 'ログインが必要です' 
+      redirect_to new_user_session_path 
+    end
+  end
+
   def set_card
     @credit_card = CreditCard.where(user_id: current_user.id).first 
   end
