@@ -34,11 +34,22 @@ before_action :set_card, only: [:purchase, :pay]
     end
   end
 
+
+  def destroy
+    if current_user.id ==@item.user_id && @item.destroy
+      redirect_to root_path
+      flash[:notice] = '商品を削除しました'
+    else
+      render :edit
+      flash[:alert] = '商品が削除できませんでした'
+  end
+end
+    
   
   def edit
-    
   end
-    
+
+
   
   def purchase
     if @credit_card.present?
