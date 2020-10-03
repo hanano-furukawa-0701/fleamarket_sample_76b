@@ -27,4 +27,13 @@ Rails.application.routes.draw do
 
   resources :credit_cards, only: [:index, :new, :create, :destroy]
 
+
+
+  resources :items do 
+  #Ajaxで動くアクションのルートを作成
+  collection do
+    get 'category/get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }
+    get 'category/get_category_grandchildren', to: 'items#get_category_grandchildren', defaults: { format: 'json' }
+  end
+end
 end

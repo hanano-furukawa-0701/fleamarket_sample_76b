@@ -86,4 +86,4 @@ gem 'payjp'
 gem 'active_hash', '~> 2.3.0' 
 gem 'carrierwave'
 gem 'mini_magick'
-
+gem 'ancestry'
