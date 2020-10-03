@@ -48,17 +48,11 @@
         .contents_body_details_categoryfield
           = f.text_field :category,:size=>"38", autofocus: true, autocomplete: "category",placeholder: "例）"
       
-        .contents_body_details_brand
-          =f.label :ブランド
-          .contents_body_details_brand_any
-            任意
-        .contents_body_details_field
-          = f.text_field :brand, :size=>"50",autofocus: true, autocomplete: "brand",placeholder: "例）シャネル"
         .contents_body_details_conditionbox
           =f.label :商品の状態
           .contents_body_details_conditionbox_must
             必須
-        .condition-body_details_condition
+        .contents_body_details_condition
           =f.collection_select :condition_id, Condition.all, :id, :name, {},{}
 
       .contents_body_shipping

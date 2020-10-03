@@ -33,11 +33,17 @@ before_action :set_card, only: [:purchase, :pay]
     end
   end
 
-  
-  def edit
-    
+
+  def destroy
+    item =Item.find(params[:id])
+    item.destroy
   end
     
+  
+  def edit
+  end
+
+
   
   def purchase
     if @credit_card.present?
