@@ -36,8 +36,12 @@ before_action :set_card, only: [:purchase, :pay]
 
   def destroy
     if current_user.id ==@item.user_id && @item.destroy
-    end
-    redirect_to root_path
+      redirect_to root_path
+  flash[:notice] = '商品を削除しました'
+    else
+      render :edit
+      flash[:alert] = '商品が削除できませんでした'
+end
 end
     
   
