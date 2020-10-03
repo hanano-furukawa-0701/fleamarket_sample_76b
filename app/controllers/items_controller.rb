@@ -35,8 +35,11 @@ before_action :set_card, only: [:purchase, :pay]
 
 
   def destroy
-    item =Item.find(params[:id])
+    if item =Item.find(params[:id])
     item.destroy
+    redirect_to root_path
+    else
+      render:destroy
   end
     
   

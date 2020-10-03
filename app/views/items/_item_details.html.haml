@@ -53,7 +53,7 @@
           - if user_signed_in? &&current_user.id ==@item.user_id
             %li
             =link_to "商品の編集", edit_item_path(@item.id),class: 'edit_btn'
-            =link_to "この商品を削除する","/items/#{@item.id}", method: :delete,class:'destroy_btn'
+            =link_to "この商品を削除する",item_path(@item.id), method: :delete,class:'destroy_btn'
           -elsif user_signed_in?
             %li.item-details__contents__item-box_purchase
             =link_to"購入画面に進む",'purchase_item_path'
