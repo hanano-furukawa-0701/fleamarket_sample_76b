@@ -1,5 +1,111 @@
-.a
-  = @items.each do |item|
-    item.price
-    item.name
-    item.images
+.header
+  = image_tag 'logo.png',size:"140x41",alt:"ロゴ",class:"logo"
+.contents
+  .contents_body
+    = form_for @item do |f|
+      .contents_body_exhibit
+        .contents_body_exhibit_box
+          =f.label :出品画像 
+          .contents_body_exhibit_box_must
+            必須
+
+        .contents_body_exhibit_maxtext
+          最大10枚までアップロードできます
+        .contents_body_exhibit_image
+        #image-box
+        = f.fields_for :images do |image|
+          .js-file_group{"data-index" => "#{image.index}"}
+            = image.file_field :url, class: 'js-file'
+            %br/
+            %span.js-remove 削除
+          - if @item.persisted?
+            = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+        - if @item.persisted?
+          .js-file_group{"data-index" => "#{@item.images.count}"}
+            = file_field_tag :url, name: "item[images_attributes][#{@item.images.count}][url]", class: 'js-file'
+            .js-remove 削除
+        
+      .contents_body_name
+        .contents_body_name_box
+          =f.label :商品名
+          .contents_body_name_box_must
+            必須
+        .contents_body_name_field
+          = f.text_field :name, :size=>"60",autofocus: true, autocomplete: "name",placeholder: "例）40文字まで"
+
+      .contents_body_explain
+        .contents_body_explain_text
+          =f.label :商品の説明
+          .contents_body_explain_text_a
+            必須
+        .contents_body_explain_field
+          = f.text_area :explanation, :size=>"60", autocomplete: "explanation",placeholder: '例）商品の説明（必須1,000文字以内)（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
+        .contents_body_explain_textcount
+        .contents_body_explain_attention
+
+
+      .contents_body_details
+        .contents_body_details_box
+          商品の詳細
+        .contents_body_details_category
+          =f.label :カテゴリー
+          .contents_body_details_category_must
+            必須
+        .contents_body_details_categoryfield
+          = f.text_field :category,:size=>"38", autofocus: true, autocomplete: "category",placeholder: "例）"
+      
+        .contents_body_details_conditionbox
+          =f.label :商品の状態
+          .contents_body_details_conditionbox_must
+            必須
+        .condition-body_details_condition
+          =f.collection_select :condition_id, Condition.all, :id, :name, {},{}
+
+      .contents_body_shipping
+        .contents_body_shipping_about
+          配送について
+        .contents_body_shipping_burden
+          =f.label :配送料の負担,{class:'payer'}
+          =f.label :必須, { class: 'mustcondition' }
+          .condition-select-wrap
+            = f.collection_select :payer_id, Payer.all, :id, :name, {},{}
+
+        .contents_body_shipping_area
+          =f.label :発送元の地域,{class:'prefecture'}
+          =f.label :必須, { class: 'mustcondition' }
+          .condition-select-wrap
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {},{}
+
+        .contents_body_shipping_day
+          =f.label :発送までの日数,{class:'preparationdays'}
+          =f.label :必須, { class: 'mustcondition' }
+          .condition-select-wrap
+            = f.collection_select :preparation_day_id, PreparationDay.all, :id, :name, {},{}
+
+        .contents_body_shipping_price
+          .contents_body_shipping_price_length
+            価格（￥300〜￥9,999,999）
+          =f.label :販売価格,{class:'preparationdays'}
+          =f.label :必須, { class: 'mustcondition' }
+          .contents_body_shipping_price_form
+            ¥
+            =f.number_field :price, :size=>"50"
+        .contents_body_shipping_price_fee
+          販売手数料(10%)             
+          .contents_body_shipping_price_fee_right_bar
+            
+        .contents_body_shipping_profit
+          販売利益
+          .contents_body_shipping_profit_right_bar2
+            
+        .contents_body_shipping_btn
+          = f.submit '変更する',class:'submit_btn'
+            
+
+
+        .contents_body_shipping_back
+          =  link_to'もどる',root_path,class:'back_btn'
+
+
+= render "bottom_banner"
+= render "footer"

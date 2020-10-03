@@ -246,7 +246,6 @@ a {
   }
 
   .item-introduction {
-    
     padding: 60px 0 100px;
     background-color: #f8f8f8;
     &__title {
@@ -339,7 +338,16 @@ a {
     }
   }
 }
-
+.nav-bar{
+ 
+  .member-menu-list{
+    display: flex;
+    justify-content: flex-end ;
+    .edit_btn{}
+    
+    .log{padding: 0 20px;}
+  }
+}
 .details-page {
   background-color: #f8f8f8;
   padding: 40px 0 10px;
@@ -350,6 +358,11 @@ a {
       &__item-box {
         padding: 15px 40px 40px;
         background-color: $point-color;
+        &__sub-images{
+          display: flex;
+          img{width: 180px;
+          height: 180px;}
+        }
         &__name {
           font-size: 24px;
           font-weight: bold;
@@ -358,12 +371,24 @@ a {
         }
         &__images {
           text-align: center;
+          &_main{
+            
+          img{
+            width: 300px;
+            height: 350px;
+          }
+          
+        &__sub-images{
+          display: flex;
+        }
+        
+          }
           li {
             img {
               width: 500px;
             }
             ul {
-              display: flex;
+              
               justify-content: center;
               li {
                 img {
@@ -383,6 +408,38 @@ a {
             font-size: 16px;
             font-weight: normal;
           }
+        }
+        &__sign_in{
+          height: 120px;
+          &_a{
+            display: flex;
+            flex-direction: column;
+            background-color:#3CCACE;
+          text-align: center;
+          height: 60px;
+          line-height: 60px;
+          color:white
+          }
+          .edit_btn{background-color:$main-color;
+                    text-align: center;
+                    color: white;
+                    height: 50px;
+                    line-height: 50px;
+          }
+          .destroy_btn{background-color:$main-color;
+            text-align: center;
+            color: white;
+            height: 50px;
+            line-height: 50px;
+            margin-top: 20px;
+          }
+        }
+        &_purchase{
+          background-color:#3CCACE;
+          text-align: center;
+          height: 60px;
+          line-height: 60px;
+          color:white
         }
         &__text {
           font-size: 16px;
