@@ -61,7 +61,7 @@
     }
     &_details{
       border-bottom:medium solid  white;
-      height: 300px;
+      height: 200px;
       padding-left: 10px;
       &_box{
         color:rgb(136, 136, 136) ;
@@ -79,16 +79,9 @@
       &_categoryfield{
         
       }
-      &_brand{
-        margin-top: 10px;
-        display: flex;
-        margin-bottom: 10px;
-        &_any{color: white;
-          background-color:rgb(136, 136, 136);
-          margin-left: 10px;
-        }
-      }
+      
       &_conditionbox{
+        
         display: flex;
         margin-top: 10px;
         &_must{
@@ -98,7 +91,14 @@
           margin-bottom: 10px;
         }
       }
-    }
+      &_condition{
+        #item_condition_id{
+          width: 200px
+        }
+      }
+    
+    
+  }
     &_shipping{
 border-bottom:medium solid  white;
 padding-left: 10px;
@@ -112,18 +112,34 @@ padding-left: 10px;
             background-color: #3CCACE;
             color: white;
           }
+          .condition-select-wrap{
+            #item_payer_id{
+              width: 200px;
+            }
+            }
+          
         }
         &_area{
           padding: 10px 0;
             .mustcondition{background-color: #3CCACE;
-            color: white;}            
+            color: white;}    
+          .condition-select-wrap{
+              #item_prefecture_id{
+                width: 200px; 
+              }       
         }
+      }
         &_day{
           padding: 10px 0;
           border-bottom:medium solid  white;
 
           .mustcondition{background-color: #3CCACE;
           color: white;}
+          .condition-select-wrap{
+            #item_preparation_day_id{
+              width: 200px; 
+            }       
+      }
         }
         &_price{
           padding: 10px 30px 10px 0;

@@ -1,11 +1,12 @@
 class CreditCardsController < ApplicationController
+  before_action :access_restrictions
   before_action :set_card, except: [:create]
 
   def index
     if @credit_card.blank?
       redirect_to action: "new"
     else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
       customer = Payjp::Customer.retrieve(@credit_card.customer_id)
       @default_card_infomation = customer.cards.retrieve(@credit_card.card_id)
     end
@@ -16,7 +17,7 @@ class CreditCardsController < ApplicationController
   end
 
   def create
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
@@ -37,7 +38,7 @@ class CreditCardsController < ApplicationController
 
   def destroy
     if @credit_card.present?
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
       customer = Payjp::Customer.retrieve(@credit_card.customer_id)
       customer.delete
       @credit_card.delete
@@ -47,6 +48,14 @@ class CreditCardsController < ApplicationController
   end
 
   private
+
+  def access_restrictions
+    unless user_signed_in?
+      flash[:alert] = 'ログインが必要です' 
+      redirect_to new_user_session_path 
+    end
+  end
+
   def set_card
     @credit_card = CreditCard.where(user_id: current_user.id).first 
   end

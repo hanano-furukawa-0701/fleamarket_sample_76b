@@ -1,3 +1,4 @@
+
 $(function(){
   if ($('#token_submit') != null){
     Payjp.setPublicKey('pk_test_360fd4bb979cfcc120875ec4');

@@ -2,50 +2,65 @@
   .item-details__contents
     .item-details__contents__item-box
       %h2.item-details__contents__item-box__name
-        apple watch
-      %ul.item-details__contents__item-box__images
-        %li.item-details__contents__item-box__main-image
-          = image_tag "https://img.fril.jp/img/254372826/l/720448964.jpg?1566877916"
-        %li.item-details__contents__item-box__sub-images
-          %ul
-            %li 
-              = image_tag "https://img.fril.jp/img/254372826/l/720448964.jpg?1566877916"
-            %li 
-              = image_tag "https://img21.shop-pro.jp/PA01412/851/product/146346638.jpg?cmsp_timestamp=20191020171625"
+        =@item.name
+      .item-details__contents__item-box__images
+        .item-details__contents__item-box__images_main
+          = image_tag @item.images[0].url.url
+        %ul.item-details__contents__item-box__sub-images
+          - @item.images.drop(1).each do |image|
+            %li.item-details__contents__item-box__sub-images_sub
+            =image_tag image.url.url 
       .item-details__contents__item-box__price
-        ¥10000
+        ￥
+        =@item.price
         .item-details__contents__item-box__price__tax
           （税込）送料込み
       .item-details__contents__item-box__text
-        エルメスのアップルウォッチです
+        =@item.explanation
       .item-details__contents__item-box__imformation
         %table  
           %tr 
             %th 出品者
-            %td hanano 
+            %td 
+              =@item.user.Nickname
           %tr
             %th カテゴリー
             %td 
               = link_to '時計', '#' 
           %tr
-            %th ブランド
-            %td apple
-          %tr
-            %th 商品のサイズ
-            %td 
-          %tr
             %th 商品の状態
-            %td 新品/未使用
+            %td 
+              =@item.condition.name
           %tr
             %th 配送料の負担
-            %td 送料込み（出品者負担）
+            %td 
+              =@item.payer.name
           %tr
             %th 発送元の地域
             %td
-              = link_to '愛知県', '#' 
+              =@item.prefecture.name
           %tr
             %th 発送日の目安
-            %td 4-7日で発送
+            %td 
+              =@item.preparation_day.name
+      .item-details__contents__item-box__price
+        ￥
+        =@item.price
+        .item-details__contents__item-box__price__tax
+          （税込）送料込み
+      .item-details__contents__item-box__sign_in
+        %ul.item-details__contents__item-box__sign_in_a
+          - if user_signed_in? &&current_user.id ==@item.user_id
+            %li
+            =link_to "商品の編集", edit_item_path(@item.id),class: 'edit_btn'
+            =link_to "この商品を削除する",item_path(@item.id), method: :delete,class:'destroy_btn'
+          -elsif user_signed_in?
+            %li.item-details__contents__item-box_purchase
+            =link_to"購入画面に進む",'purchase_item_path'
+          -else
+            %li.item-details__contents__item-box_purchase
+            
+        
       .item-details__contents__item-box__other
         .item-details__contents__item-box__other__like
           = icon('fas','star')

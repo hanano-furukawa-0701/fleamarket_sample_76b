@@ -9,15 +9,7 @@ Rails.application.routes.draw do
 
   root 'items#index'
   resources :users,only: [:show]
-  
-  
-
-  root 'items#index'
-
-
-
-
-  resources :items, only: [:index, :new,:create,:show] do
+  resources :items do
     member do
       get 'purchase', to: 'items#purchase'
       post 'pay', to: 'items#pay'

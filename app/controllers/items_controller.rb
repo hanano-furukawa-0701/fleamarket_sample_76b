@@ -1,9 +1,10 @@
 class ItemsController < ApplicationController
-before_action :set_item, except: [:index, :new, :create]
+before_action :access_restrictions, except: [:index, :show]
+before_action :set_item, except: [:index, :new, :create, ]
 before_action :set_card, only: [:purchase, :pay]
 
   def index
-    @items = Item.includes(:images).order('created_at DESC')
+    @items = Item.includes(:images).limit(5).order('created_at DESC')
   end
 
   def new
@@ -21,6 +22,7 @@ before_action :set_card, only: [:purchase, :pay]
   end
 
   def show
+    @item
   end
 
 
@@ -32,14 +34,26 @@ before_action :set_card, only: [:purchase, :pay]
     end
   end
 
+
+  def destroy
+    if current_user.id ==@item.user_id && @item.destroy
+      redirect_to root_path
+      flash[:notice] = '商品を削除しました'
+    else
+      render :edit
+      flash[:alert] = '商品が削除できませんでした'
+  end
+end
+    
   
   def edit
   end
-    
+
+
   
   def purchase
     if @credit_card.present?
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
       customer = Payjp::Customer.retrieve(@credit_card.customer_id)
       @default_card_infomation = customer.cards.retrieve(@credit_card.card_id)
     end
@@ -53,7 +67,7 @@ before_action :set_card, only: [:purchase, :pay]
       redirect_to controller: "credit_cards", action: "new"
       flash[:alert] = '購入にはクレジットカードが必要です'
     else
-      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
       Payjp::Charge.create(
         amount: @item.price,
         customer: @credit_card.customer_id,
@@ -72,16 +86,21 @@ before_action :set_card, only: [:purchase, :pay]
     params.require(:item).permit(:name, :explanation, :category, :price, :condition_id, :payer_id, :preparation_day_id, :prefecture_id, images_attributes: [:url, :_destroy, :id]).merge(user_id: current_user.id)
   end
   
+  def access_restrictions
+    unless user_signed_in?
+      flash[:alert] = 'ログインが必要です' 
+      redirect_to new_user_session_path 
+    end
+  end
+
   def set_item
     @item =Item.find(params[:id])
   end
+  
 
   def set_card
     @credit_card = CreditCard.where(user_id: current_user.id).first
   end
-
-
-
 
 end
 

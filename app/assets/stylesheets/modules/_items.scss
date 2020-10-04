@@ -254,45 +254,78 @@ a {
       text-align: center;
       padding-bottom: 5px;
     }
+    &__new{
+      text-align: center;
+    }
     &__list {
+      display: flex;
+      margin: 20px auto;
+      width: 1200px;
       &__title {
         color: $main-color;
-        text-align: center;
+      
         h3 {
           font-size: 24px;
           font-weight: bold;
         }
       }
       &__block {
-        @include list-block();
+        display: flex;
         margin-top: 20px;
         &__box {
           width: 20%;
+          height: 300px;
+          display: flex;
+          &:hover {
+            opacity: 0.5;
+          }
           &__content {
             display: inline-block;
             width: 100%;
             height: 100%;
+           
             &__top {
-              height: 196px;
+              height: 200px;
+              
               img {
                 width: 100%;
                 height: 100%;
+
+              }
+
+              &__sold {
+                width: 0;
+                height: 0;
+                border-top: 70px solid #ea352d;
+                border-right: 70px solid transparent;
+                border-bottom: 70px solid transparent;
+                border-left: 70px solid #ea352d;
+                z-index: 1;
+                position: relative;
+                top: -206px;
+                &__inner {
+                  transform: rotate(-45deg);
+                  font-size: 28px;
+                  margin: -35px 0px 0px -60px;
+                  color: #fff;
+                  letter-spacing: 2px;
+                }
               }
             }
             &__bottom {
               color: black;
               background-color: $point-color;
-              height: 80px;
-              padding: 10px;
+              height: 100px;
+              padding: 15px 12px 12px;
               &__name {
-                font-size: 14px;
-                padding-bottom: 5px;
+                font-size: 18px;
+                margin-bottom: 5px;
               }
               &__details {
-                ul {
+                
+                &_box{
                   display: flex;
                   justify-content: space-between;
-                  font-size: 14px;
                 }
                 &__tax {
                   font-size: 10px;
@@ -305,7 +338,16 @@ a {
     }
   }
 }
-
+.nav-bar{
+ 
+  .member-menu-list{
+    display: flex;
+    justify-content: flex-end ;
+    .edit_btn{}
+    
+    .log{padding: 0 20px;}
+  }
+}
 .details-page {
   background-color: #f8f8f8;
   padding: 40px 0 10px;
@@ -316,6 +358,11 @@ a {
       &__item-box {
         padding: 15px 40px 40px;
         background-color: $point-color;
+        &__sub-images{
+          display: flex;
+          img{width: 180px;
+          height: 180px;}
+        }
         &__name {
           font-size: 24px;
           font-weight: bold;
@@ -324,12 +371,24 @@ a {
         }
         &__images {
           text-align: center;
+          &_main{
+            
+          img{
+            width: 300px;
+            height: 350px;
+          }
+          
+        &__sub-images{
+          display: flex;
+        }
+        
+          }
           li {
             img {
               width: 500px;
             }
             ul {
-              display: flex;
+              
               justify-content: center;
               li {
                 img {
@@ -349,6 +408,38 @@ a {
             font-size: 16px;
             font-weight: normal;
           }
+        }
+        &__sign_in{
+          height: 120px;
+          &_a{
+            display: flex;
+            flex-direction: column;
+            background-color:#3CCACE;
+          text-align: center;
+          height: 60px;
+          line-height: 60px;
+          color:white
+          }
+          .edit_btn{background-color:$main-color;
+                    text-align: center;
+                    color: white;
+                    height: 50px;
+                    line-height: 50px;
+          }
+          .destroy_btn{background-color:$main-color;
+            text-align: center;
+            color: white;
+            height: 50px;
+            line-height: 50px;
+            margin-top: 20px;
+          }
+        }
+        &_purchase{
+          background-color:#3CCACE;
+          text-align: center;
+          height: 60px;
+          line-height: 60px;
+          color:white
         }
         &__text {
           font-size: 16px;

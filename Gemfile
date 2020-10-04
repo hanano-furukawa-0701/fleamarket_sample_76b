@@ -87,3 +87,7 @@ gem 'active_hash', '~> 2.3.0'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ancestry'
+gem 'rails-i18n'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+
