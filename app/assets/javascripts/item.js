@@ -23,12 +23,11 @@ document.addEventListener('turbolinks:load', function () {
 
   $('.hidden-destroy').hide();
   $('.contents_body_exhibit').on('change', '.js-file', function(e) {
-    
     const targetIndex = $(this).parent().data('index');
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
+    console.log(e.target)
     const blobUrl = window.URL.createObjectURL(file);
-    
     // 該当indexを持つimgがあれば取得して変数imgに入れる(画像変更の処理)
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
      img.setAttribute('src', blobUrl);
@@ -57,6 +56,7 @@ document.addEventListener('turbolinks:load', function () {
     if ($('.js-file').length == 0) $('.contents_body_exhibit').append(buildFileField(fileIndex[0]));
   });
 });
+
 
 
 
