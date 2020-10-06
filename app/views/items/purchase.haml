@@ -1,4 +1,4 @@
-.wrapper
+.wrapper-purchase
   .header
     .logo
       = link_to '/' do
@@ -8,18 +8,24 @@
       %h2 購入内容の確認
     .product-details-box
       .product-photo
-        写真
+        -# -if @item.images[0].url.url.present?
+          -# = image_tag @item.images[0].url.url
+        -# - else
+          -# = image_tag 'material/icon/icon_camera.png', alt: '商品イメージ',size:"80x80"
+        = image_tag 'material/icon/icon_camera.png', alt: '商品イメージ',size:"80x80"
+          
       .product-details
         .product-name
-          %p【着画】ナイキ NIKE 刺繍ロゴ パーカー スウェット ブルー 青 古着
+          %p
+            = @item.name
         .product-price
           %p 送料込み(税込)
           .price
-            ￥2,000
+            = number_to_currency(@item.price, {unit: "¥",precision: 0})
     .tortal-price-box
       %p 支払い金額
       .tortal-price
-        ￥2,000
+        = number_to_currency(@item.price, {format: "%n%u",unit: "円",precision: 0})
     .payment-method
       %h3 支払い方法
       - if @default_card_infomation.blank?
@@ -28,7 +34,7 @@
         = '**** **** ****' + @default_card_infomation.last4 
         - exp_month = @default_card_infomation.exp_month.to_s
         - exp_year = @default_card_infomation.exp_year.to_s.slice(2,3)
-      %br
+        %br
         = '有効期限' + exp_month + '/' + exp_year
       - if @item.buyer_id.present?
         %br
@@ -49,4 +55,4 @@
       %li 
         =link_to("特定商取引に関する表記",root_path)
     .footer-logo
-      = image_tag 'logo-white.png',size:"140x41",alt: 'ロゴ'
+      = image_tag 'material/logo/logo-white.png',size:"140x41",alt: 'ロゴ'
