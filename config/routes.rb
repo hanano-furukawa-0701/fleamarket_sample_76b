@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   root 'items#index'
   resources :users,only: [:show]
-  resources :items, only: [:index, :new,:create,:show,:edit,:update] do
+  resources :items do
     member do
       get 'purchase', to: 'items#purchase'
       post 'pay', to: 'items#pay'
@@ -19,4 +19,13 @@ Rails.application.routes.draw do
 
   resources :credit_cards, only: [:index, :new, :create, :destroy]
 
+
+
+  resources :items do 
+  #Ajaxで動くアクションのルートを作成
+  collection do
+    get 'category/get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }
+    get 'category/get_category_grandchildren', to: 'items#get_category_grandchildren', defaults: { format: 'json' }
+  end
+end
 end
