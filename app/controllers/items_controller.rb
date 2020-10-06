@@ -45,6 +45,7 @@ before_action :set_card, only: [:purchase, :pay]
       customer = Payjp::Customer.retrieve(@credit_card.customer_id)
       @default_card_infomation = customer.cards.retrieve(@credit_card.card_id)
     end
+    
   end
 
   def pay

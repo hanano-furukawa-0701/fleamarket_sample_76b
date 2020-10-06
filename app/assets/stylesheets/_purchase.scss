@@ -6,15 +6,13 @@
 @mixin border-line{
   border-top:solid 1px #eee;
 }
-.wrapper{
-//  position: relative;
+.wrapper-purchase{
   .header{
     height:56px;
     display: flex;
     align-items: center;
     justify-content:center;
     border-bottom: solid 1px #eee;
-    .logo{}
   }
   .contents{
     .title{
@@ -33,9 +31,9 @@
       display:flex;
       margin:0 auto;
       .product-photo{
-        height:80px;
-        width:80px;
-        background-color:green;
+        background-color: #eee;
+        height: 80px;
+        width: 80px;
       }
       .product-details{
         width:calc(100% - 90px);
@@ -47,7 +45,6 @@
         }
         .product-price{
           text-align:right;
-          
           p{
             float:left;
             font-size:12px;
@@ -78,23 +75,6 @@
       font-size:14px;
       font-weight:600;
       .payment-list{}
-    }
-    .shipping-address{
-      @include border-line;
-      @include placement;
-      font-size:14px;
-      font-weight:600;
-      .address-list{}
-    }
-    .buy-button{
-      @include border-line;
-      @include placement;
-      .notification{
-        color:rgb(255,2,17);
-        font-size:14px;
-        line-height:1.5;
-        margin-bottom:24px;
-      }
       .buy-btn{
         background-color:#ccc;
         color:#888;
@@ -118,17 +98,18 @@
     }
   }
   .footer{
-//    position: absolute;
-//    bottom: 0;
-//    background-color: #eee;
+    //position: absolute;
+    bottom: 0;
+    background-color: #eee;
     @include border-line;
     align-items: center;
     .footer-list{
       text-align: center;
       text-decoration:none;
       font-size:12px;
-      li{
+      a{
         text-decoration: none;
+        color:#888;
       }
     }
     .footer-logo{
