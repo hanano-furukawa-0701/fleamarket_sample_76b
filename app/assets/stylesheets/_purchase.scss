@@ -8,7 +8,7 @@
 }
 .purchase{
   &__header{
-    height:56px;
+    height:96px;
     display: flex;
     align-items: center;
     justify-content:center;
@@ -79,15 +79,15 @@
 
       }
       p{
+        @include placement;
+        text-align: right;
         font-size:18px;
         font-weight:600;
+
       }
       .buy-btn{
-        background-color:#ccc;
-        color:#888;
-        //条件分岐で購入可能時赤くなる
-        //background-color:#ea352d;
-        //color:#fff;
+        background-color:#ea352d;
+        color:#fff;
         font-size:17px;
         min-height:48px;
         padding:0 24px;
@@ -105,7 +105,6 @@
     }
   }
   &__footer{
-    //position: absolute;
     bottom: 0;
     background-color: #eee;
     @include border-line;
