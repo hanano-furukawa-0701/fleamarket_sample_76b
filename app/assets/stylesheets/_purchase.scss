@@ -6,16 +6,16 @@
 @mixin border-line{
   border-top:solid 1px #eee;
 }
-.wrapper-purchase{
-  .header{
+.purchase{
+  &__header{
     height:56px;
     display: flex;
     align-items: center;
     justify-content:center;
     border-bottom: solid 1px #eee;
   }
-  .contents{
-    .title{
+  &__contents{
+    &__title{
       @include placement;
       text-align: center;
       h2{
@@ -25,31 +25,31 @@
         padding: 0;
       }
     }
-    .product-details-box{
+    &__product{
       @include border-line;
       @include placement;
       display:flex;
       margin:0 auto;
-      .product-photo{
+      &__photo{
         background-color: #eee;
         height: 80px;
         width: 80px;
       }
-      .product-details{
+      &__details{
         width:calc(100% - 90px);
         margin-left:16px;
-        .product-name{
+        &__name{
           font-size:14px;
           line-height:1.4em;
           margin-bottom:8px;
         }
-        .product-price{
+        &__price{
           text-align:right;
           p{
             float:left;
             font-size:12px;
           }
-          .price{
+          &__num{
             font-size:15px;
             font-weight:600;
             margin-left:8px;
@@ -57,7 +57,7 @@
         }
       }
     }
-    .tortal-price-box{
+    &__tortal-price{
       @include border-line;
       @include placement;
       display:flex;
@@ -65,16 +65,23 @@
       font-weight:600;
       justify-content:space-between;
       align-items:center;
-      .tortal-price{
+      &__num{
         font-size:24px;
       }
     }
-    .payment-method{
+    &__payment-method{
       @include border-line;
       @include placement;
-      font-size:14px;
-      font-weight:600;
-      .payment-list{}
+      h3{
+        float: left;
+        font-size:18px;
+        font-weight:600;
+
+      }
+      p{
+        font-size:18px;
+        font-weight:600;
+      }
       .buy-btn{
         background-color:#ccc;
         color:#888;
@@ -97,13 +104,13 @@
       }
     }
   }
-  .footer{
+  &__footer{
     //position: absolute;
     bottom: 0;
     background-color: #eee;
     @include border-line;
     align-items: center;
-    .footer-list{
+    &__list{
       text-align: center;
       text-decoration:none;
       font-size:12px;
@@ -112,7 +119,7 @@
         color:#888;
       }
     }
-    .footer-logo{
+    &__logo{
       margin: auto;
       align-items: center;
       height: 41px;
