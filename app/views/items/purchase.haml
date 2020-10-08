@@ -8,11 +8,10 @@
       %h2 購入内容の確認
     .purchase__contents__product
       .purchase__contents__product__photo
-        -# -if @item.images[0].url.url.present?
-          -# = image_tag @item.images[0].url.url
-        -# - else
-          -# = image_tag 'material/icon/icon_camera.png', alt: '商品イメージ',size:"80x80"
-        = image_tag 'material/icon/icon_camera.png', alt: '商品イメージ',size:"80x80"
+        - if @item.images[0].url.url.present?
+          = image_tag @item.images[0].url.url
+        - else
+          = image_tag 'material/icon/icon_camera.png', alt: '商品イメージ',size:"80x80"
           
       .purchase__contents__product__details
         .purchase__contents__product__details__name
