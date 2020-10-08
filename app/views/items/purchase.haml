@@ -1,0 +1,58 @@
+.purchase
+  .purchase__header
+    .purchase__header__logo
+      = link_to '/' do
+        = image_tag 'material/logo/logo.png',size:"140x41",alt:"ロゴ"
+  .purchase__contents
+    .purchase__contents__title
+      %h2 購入内容の確認
+    .purchase__contents__product
+      .purchase__contents__product__photo
+        -# -if @item.images[0].url.url.present?
+          -# = image_tag @item.images[0].url.url
+        -# - else
+          -# = image_tag 'material/icon/icon_camera.png', alt: '商品イメージ',size:"80x80"
+        = image_tag 'material/icon/icon_camera.png', alt: '商品イメージ',size:"80x80"
+          
+      .purchase__contents__product__details
+        .purchase__contents__product__details__name
+          %p
+            = @item.name
+        .purchase__contents__product__details__price
+          %p 送料込み(税込)
+          .purchase__contents__product__details__price__num
+            = number_to_currency(@item.price, {unit: "円",precision: 0})
+    .purchase__contents__tortal-price
+      %p 支払い金額
+      .purchase__contents__tortal-price__num
+        = number_to_currency(@item.price, {format: "%n%u",unit: "円",precision: 0})
+    .purchase__contents__payment-method
+      %h3 支払い方法
+      - if @default_card_infomation.blank?
+        %p 未設定
+      - else
+        = '**** **** ****' + @default_card_infomation.last4 
+        - exp_month = @default_card_infomation.exp_month.to_s
+        - exp_year = @default_card_infomation.exp_year.to_s.slice(2,3)
+        %br
+        = '有効期限' + exp_month + '/' + exp_year
+      - if @item.buyer_id.present?
+        %br
+        %button.sold-out-button
+          売り切れ
+        %br
+        = link_to'トップページに戻る', items_path
+      - else
+        = form_tag(action: :pay, method: :post) do
+          %button.buy-btn
+            購入する
+  .purchase__footer
+    %ul.purchase__footer__list
+      %li 
+        =link_to("プライバシーポリシー",root_path)
+      %li 
+        =link_to("メルカリ利用規約",root_path)
+      %li 
+        =link_to("特定商取引に関する表記",root_path)
+    .purchase__footer__logo
+      = image_tag 'material/logo/logo-white.png',size:"140x41",alt: 'ロゴ'
