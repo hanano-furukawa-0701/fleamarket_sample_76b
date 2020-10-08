@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-before_action :access_restrictions, except: [:index, :show]
+before_action :access_restrictions, except: [:index, :show, :search]
 before_action :set_item, except: [:index, :new, :create, ]
 before_action :set_card, only: [:purchase, :pay]
 
@@ -103,6 +103,9 @@ end
     @credit_card = CreditCard.where(user_id: current_user.id).first
   end
 
+  def search
+    @items = Item.search(params[:keyword])
+  end
 end
 
 class ItemsController < ApplicationController
