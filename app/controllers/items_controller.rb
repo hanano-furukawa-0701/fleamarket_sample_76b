@@ -14,10 +14,13 @@ before_action :set_card, only: [:purchase, :pay]
 
   def create
     @item = Item.new(item_params)
-    if @item.save!
-    redirect_to root_path
+    if @item.valid?
+      @item.save
+      redirect_to root_path
     else
+      @item.images.new
       render :new
+     
     end
   end
 
@@ -29,8 +32,10 @@ before_action :set_card, only: [:purchase, :pay]
   def update
     if @item.update(item_params)
       redirect_to root_path
+      flash[:notice] = "更新しました"
     else 
       render:edit
+      flash[:notice] = "更新できませんでした"
     end
   end
 
