@@ -9,4 +9,9 @@ class Item < ApplicationRecord
   belongs_to_active_hash :preparation_day
   belongs_to_active_hash :prefecture
   belongs_to :buyer, optional: true,class_name: "User"
+
+  def self.search(search)
+    return Item.all unless search
+    Item.where('text LIKE(?',"%{search}%")
+  end
 end
