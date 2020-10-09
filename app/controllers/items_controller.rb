@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
 before_action :access_restrictions, except: [:index, :show]
-before_action :set_item, except: [:index, :new, :create, ]
 before_action :set_card, only: [:purchase, :pay]
+before_action :set_item, only:[:show, :destroy, :edit, :update, :purchase, :pay]
+
 
   def index
     @items = Item.includes(:images).limit(5).order('created_at DESC')
@@ -10,6 +11,21 @@ before_action :set_card, only: [:purchase, :pay]
   def new
     @item = Item.new
     @item.images.new
+    #セレクトボックスの初期値設定
+    @category_parent_array = ["---"]
+    #データベースから、親カテゴリーのみ抽出し、配列化
+    @category_parent_array = Category.where(ancestry: nil)
+  end
+  def get_category_children
+    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+    # ここでfind_byを使うことでレディーしか取れてなかった
+    @category_children = Category.find(params[:parent_id]).children
+  end
+
+  # 子カテゴリーが選択された後に動くアクション
+  def get_category_grandchildren
+    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+    @category_grandchildren = Category.find(params[:child_id]).children
   end
 
   def create
@@ -108,32 +124,4 @@ end
     @credit_card = CreditCard.where(user_id: current_user.id).first
   end
 
-end
-
-class ItemsController < ApplicationController
-  before_action :set_item, only:[:show, :destroy, :edit, :update, :purchase, :payment]
-
-  def new
-    @item = Item.new
-    @item.item_images.new
-
-    #セレクトボックスの初期値設定
-    @category_parent_array = ["---"]
-    #データベースから、親カテゴリーのみ抽出し、配列化
-    @category_parent_array = Category.where(ancestry: nil)
-  end
-
-  # 以下全て、formatはjsonのみ
-  # 親カテゴリーが選択された後に動くアクション
-  def get_category_children
-    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
-    # ここでfind_byを使うことでレディーしか取れてなかった
-    @category_children = Category.find(params[:parent_id]).children
-  end
-
-  # 子カテゴリーが選択された後に動くアクション
-  def get_category_grandchildren
-    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
-    @category_grandchildren = Category.find(params[:child_id]).children
-  end
 end
