@@ -69,15 +69,29 @@
           = link_to '#' do
             = icon('fas', 'flag')
             不適切な商品の通報
+  - if user_signed_in?
     .item-details__contents__comment-box
-      .item-details__contents__conmment-box__form
-        %textarea
+      = form_with(model:[@item,@comment], local: true, class: "item-details__contents__conmment-box__form", id: "new_comment") do |form|
+        = form.text_area :comment, {class: "textbox", placeholder: "コメントを入力する"}
         .item-details__contents__comment-box__form__warning
           相手のことを考え丁寧なコメントを心がけましょう。
           %br 不快な言葉遣いなどは利用制限や退会処分となることがあります。
         %button.item-details__contents__comment-box__form__submit{type: "submit"}
           = icon('fas', 'comment') 
           コメントする
+    .item-details__contents__comment-list
+      %p ＜コメント一覧＞
+      - if @comments 
+        -@comments.each do |comment|
+          .item-details__contents__comment-list__content
+            .item-details__contents__comment-list__content__details
+              = comment.user.Nickname
+              %strong :
+              = comment.comment
+          - if user_signed_in? && current_user.id == @item.user_id
+            .item-deatils__contents__comment-list__content__destroy
+              = link_to item_comment_path(comment.item.id, comment.id), method: :delete do
+                = icon('fas', 'trash')
   .item-details__links
     .item-details__links__previous
       = link_to '#' do

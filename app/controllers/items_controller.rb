@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 before_action :access_restrictions, except: [:index, :show]
-before_action :set_item, except: [:index, :new, :create, ]
+before_action :set_item, except: [:index, :new, :create ]
 before_action :set_card, only: [:purchase, :pay]
 
   def index
@@ -22,7 +22,8 @@ before_action :set_card, only: [:purchase, :pay]
   end
 
   def show
-    @item
+    @comment = Comment.new
+    @comments = @item.comments.order(created_at: :desc)
   end
 
 
