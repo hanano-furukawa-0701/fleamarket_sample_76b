@@ -43,12 +43,13 @@
       .contents_body_details
         .contents_body_details_box
           商品の詳細
-        .contents_body_details_category
+        .contents_body_details_categorybox
           =f.label :カテゴリー
-          .contents_body_details_category_must
+          .contents_body_details_categorybox_must
             必須
-        .contents_body_details_categoryfield
-          = f.text_field :category,:size=>"38", autofocus: true, autocomplete: "category",placeholder: "例）"
+          .contents_body_details_category
+            = f.collection_select :category, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {id: 'parent_category'}
+
       
         .contents_body_details_conditionbox
           =f.label :商品の状態
@@ -106,16 +107,3 @@
 = render "bottom_banner"
 = render "footer"
 
-.exhibitionPage
-  .exhibitionPage__main
-    .exhibitionPage__main__contents
-      = form_with(model: @item, local: true) do |form|
-        .exhibitionPage__main__contents__detail
-          .exhibitionPage__main__contents__detail__title
-            %h1 商品の詳細
-          .exhibitionPage__main__contents__detail__category
-            .exhibitionPage__main__contents__detail__category__title
-              %label.sab-title カテゴリー
-              %span.required 必須
-            .exhibitionPage__main__contents__detail__category__choose
-              = form.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {id: 'parent_category'}
