@@ -59,7 +59,7 @@
             =link_to "この商品を削除する",item_path(@item.id), method: :delete,class:'destroy_btn'
           -elsif user_signed_in?
             %li.item-details__contents__item-box_purchase
-            =link_to"購入画面に進む",'purchase_item_path'
+            =link_to"購入画面に進む",purchase_item_path(@item.id)
           -else
             %li.item-details__contents__item-box_purchase
             
