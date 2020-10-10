@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   end
 
   root 'items#index'
-  resources :users,only: [:show]
+  resources :users do
+    get 'mypage',to: 'users#mypage' 
+    get 'logout',to: 'users#logout'
+  end
   resources :items do
     member do
       get 'purchase', to: 'items#purchase'
@@ -18,6 +21,7 @@ Rails.application.routes.draw do
     collection do
       get 'searches', to: 'items#set_search'
     end
+    resources :comments, only: [:create, :destroy]
   end
 
   resources :credit_cards, only: [:index, :new, :create, :destroy]

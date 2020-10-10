@@ -22,7 +22,7 @@
   }
   &__contents {
     width: 350px;
-    margin: 0 auto;
+    margin: 0 auto 10px;
     h3 {
       font-size: 14px;
       font-weight: bold;
@@ -50,6 +50,9 @@
         }
       }
     }
+  }
+  &__userpage {
+    text-align: center;
   }
 }
 

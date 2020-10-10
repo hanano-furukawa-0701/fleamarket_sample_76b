@@ -1,0 +1,34 @@
+.side-bar
+  %ul.my-page
+    %li
+      = link_to("マイページ",user_mypage_path(current_user.id),class:"side_menu-items")
+    %li
+      = link_to("お知らせ","#",class:"side_menu-items")
+    %li 
+      = link_to('やることリスト', "#",class:"side_menu-items")
+    %li 
+      = link_to("いいね！一覧","#",class:"side_menu-items")
+    %li 
+      = link_to('出品する', "#",class:"side_menu-items")
+    %li 
+      = link_to("下書き一覧","#",class:"side_menu-items")
+    %li 
+      = link_to('出品した商品', "#",class:"side_menu-items")
+    %li 
+      = link_to("購入した商品","#",class:"side_menu-items")
+    %li 
+      = link_to('評価一覧', "#",class:"side_menu-items")
+  %ul.settings
+    %h2 設定
+    %li 
+      = link_to("プロフィール","#",class:"side_menu-items")
+    %li 
+      = link_to('支払い方法', "#",class:"side_menu-items")
+    %li 
+      = link_to("メールアドレス/パスワード","#",class:"side_menu-items")
+    %li 
+      = link_to('出品する', "#",class:"side_menu-items")
+    %li
+      = link_to('ログアウト',user_logout_path,class:"side_menu-items")
+    %li
+      = link_to('クレジットカード登録/変更',new_credit_card_path,class:"side_menu-items")

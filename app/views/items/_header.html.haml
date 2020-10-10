@@ -16,7 +16,7 @@
     %ul.member-menu-list
       - if user_signed_in? 
         %li
-        = link_to("マイページ",user_path(current_user.id), class: "mypage")
+        = link_to("マイページ",user_mypage_path(current_user.id), class: "mypage")
       -else
         %li 
         = link_to('ログイン',new_user_session_path, class: "sign_in")
