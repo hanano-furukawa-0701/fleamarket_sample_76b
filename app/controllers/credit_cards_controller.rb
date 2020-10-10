@@ -6,7 +6,7 @@ class CreditCardsController < ApplicationController
     if @credit_card.blank?
       redirect_to action: "new"
     else
-      Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_PRIVATE_KEY]
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
       customer = Payjp::Customer.retrieve(@credit_card.customer_id)
       @default_card_infomation = customer.cards.retrieve(@credit_card.card_id)
     end
