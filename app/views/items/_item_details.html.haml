@@ -88,10 +88,10 @@
               = comment.user.Nickname
               %strong :
               = comment.comment
-          - if user_signed_in? && current_user.id == @item.user_id
-            .item-deatils__contents__comment-list__content__destroy
-              = link_to item_comment_path(comment.item.id, comment.id), method: :delete do
-                = icon('fas', 'trash')
+            - if user_signed_in? && current_user.id == @item.user_id
+              .item-deatils__contents__comment-list__content__destroy
+                = link_to item_comment_path(comment.item.id, comment.id), method: :delete do
+                  = icon('fas', 'trash')
   .item-details__links
     .item-details__links__previous
       = link_to '#' do

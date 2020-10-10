@@ -3,11 +3,8 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      respond_to do |format|
-        format.any
-        format.html { redirect_to item_path(params[:item_id]) }
-        format.json { render json: @comment}
-      end
+      redirect_to item_path(params[:item_id]) 
+      flash[:notice] = "コメントを追加しました"
     end
   end
 
@@ -16,6 +13,7 @@ class CommentsController < ApplicationController
     comment = Comment.find_by(id: params[:id], item_id: params[:item_id])
     comment.destroy
     redirect_to item_path(params[:item_id])
+    flash[:notice] = "コメントを削除しました"
   end
 
   private
