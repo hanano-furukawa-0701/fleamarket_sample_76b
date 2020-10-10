@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-before_action :access_restrictions, except: [:index, :show, :search]
-before_action :set_item, except: [:index, :new, :create, ]
+before_action :access_restrictions, except: [:index, :show, :set_search]
+before_action :set_item, except: [:index, :new, :create, :set_search]
 before_action :set_card, only: [:purchase, :pay]
 
   def index
