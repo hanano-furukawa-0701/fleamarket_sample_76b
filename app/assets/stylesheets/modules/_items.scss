@@ -352,6 +352,7 @@ a {
   position: fixed;
   right: 40px;
   bottom: 40px;
+  z-index: 100;
   &:hover {
     opacity: 0.5;
   }
