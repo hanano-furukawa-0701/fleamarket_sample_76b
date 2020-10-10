@@ -10,7 +10,7 @@
       .item-introduction__list__block__box
         = link_to item_path(item.id),class: "item-introduction__list__block__box__content" do
           .item-introduction__list__block__box__content__top
-            = image_tag item.images.first.url.url
+            = image_tag item.images.first.url
             - if item.buyer_id.present?
               .item-introduction__list__block__box__content__top__sold
                 .item-introduction__list__block__box__content__top__sold__inner
