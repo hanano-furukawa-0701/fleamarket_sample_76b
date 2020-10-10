@@ -3,11 +3,10 @@
     .header-logo
       = link_to '/' do
         = image_tag 'logo.png',size:"140x41",alt:"ロゴ"
-    = form_with url: root_path , method: :get , class:"header-search-box" do |f|
-      = f.text_field :keyword,placeholder:"キーワードから探す",class:"header-search-form"
-      %button{type:"submit",class:"search-button"}
-        =image_tag "icon-search 1.png",size:"20x20",alt:"検索"
-    
+    .header-search-box
+      = search_form_for @search, url:search_items_path do |f|
+        = f.text_field :name_cont,placeholder:"キーワードから探す",class:"header-search-form"
+        = image_submit_tag "icon-search 1.png",size:"20x20",alt:"検索",class:"search-button"
   .nav-bar
     %ul.seach-list
       %li 
