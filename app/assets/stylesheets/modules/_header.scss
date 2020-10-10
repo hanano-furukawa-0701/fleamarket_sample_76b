@@ -1,3 +1,21 @@
+@mixin left-btn {
+  color: #333;
+          text-decoration: none;
+          background-position: right;
+          background-repeat: no-repeat;
+          background-size: 18px;
+          padding-right: 30px;
+}
+
+@mixin right-btn {
+  color: #333;
+  text-decoration: none;
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: 18px;
+  padding-left: 16px;
+}
+
 .header{
   padding: 0 60px;
   .header-inner{
@@ -51,41 +69,24 @@
         padding: 0;
         line-height: 38px;
         .search-category{
-          color: #333;
-          text-decoration: none;
-          background-position: right;
-          background-repeat: no-repeat;
-          background-size: 18px;
-          padding-right: 30px;
+          @include left-btn();
         }
         .search-brand{
-          color: #333;
-          text-decoration: none;
-          background-position: right;
-          background-repeat: no-repeat;
-          background-size: 18px;
-          padding-right: 30px;
-
+          @include left-btn();
         }
 
       }
       .member-menu-list{
         display: flex;
-        .login{
-          color: #333;
-          text-decoration: none;
-          background-position: right;
-          background-repeat: no-repeat;
-          background-size: 18px;
-          padding-left: 16px;
+        line-height: 38px;
+        .mypage {
+          @include right-btn();
         }
-        .signup{
-          color: #333;
-          text-decoration: none;
-          background-position: right;
-          background-repeat: no-repeat;
-          background-size: 18px;
-          padding-left: 16px;
+        .sign_in{
+          @include right-btn();
+        }
+        .sign_up{
+          @include right-btn();
         }
       }
     }

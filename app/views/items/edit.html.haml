@@ -1,5 +1,7 @@
 .header
   = image_tag 'logo.png',size:"140x41",alt:"ロゴ",class:"logo"
+.error
+  = render 'error_form', locals: { item: @item }
 .contents
   .contents_body
     = form_for @item do |f|

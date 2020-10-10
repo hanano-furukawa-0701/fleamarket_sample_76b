@@ -1,6 +1,13 @@
 ja:
   activerecord:
     models:
+      item: 商品
+    attributes:
+      item:
+        images: 画像
+        name: 商品名
+        explanation: 説明文
+        price: 価格
       user: ユーザー
       sending_destination: 住所情報
     attributes:
