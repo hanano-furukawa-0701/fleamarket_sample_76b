@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       get 'done', to: 'items#done'
     end
     collection do
-      get 'search'
+      get 'searches', to: 'items#set_search'
     end
   end
 
