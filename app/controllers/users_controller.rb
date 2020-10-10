@@ -3,7 +3,10 @@ before_action :access_restrictions
 
   def index 
   end
-  def show
+  def mypage
+    @Nickname = current_user.Nickname
+  end
+  def logout
     @Nickname = current_user.Nickname
   end
 
