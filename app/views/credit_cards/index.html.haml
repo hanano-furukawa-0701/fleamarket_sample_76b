@@ -13,4 +13,6 @@
           = '有効期限' + exp_month + '/' + exp_year
       .card-index__contents__block__delete
         = link_to '削除する', credit_card_path(@default_card_infomation.id), method: :delete
+  .card-index__userpage
+    = link_to("マイページへ戻る",user_path(current_user.id), class: "mypage")
   
