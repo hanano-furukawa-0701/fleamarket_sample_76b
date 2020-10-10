@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
 
   before_action :basic_auth, if: :production?
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_search
 
   protected
 
@@ -25,5 +26,10 @@ class ApplicationController < ActionController::Base
       password == Rails.application.credentials[:basic_auth][:pass]
     end
   end
+
+  def set_search
+    @search = Item.ransack(params[:q])
+    @search_items =@search.result
+  end 
 
 end
