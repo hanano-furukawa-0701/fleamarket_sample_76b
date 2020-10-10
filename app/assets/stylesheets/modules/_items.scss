@@ -44,7 +44,7 @@ $point-color: white;
 }
 
 @mixin list-block {
-  width: 980px;
+  max-width: 980px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -260,7 +260,7 @@ a {
     &__list {
       display: flex;
       margin: 20px auto;
-      width: 1200px;
+      max-width: 1200px;
       &__title {
         color: $main-color;
       
@@ -338,6 +338,30 @@ a {
     }
   }
 }
+
+.exhibition_btn {
+  width: 130px;
+  height: 130px;
+  display: block;
+  background-color: $main-color;
+  color: $point-color;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 10px;
+  padding: 15px 0 10px;
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  &:hover {
+    opacity: 0.5;
+  }
+  img {
+    width: 50%;
+    height: 50%;
+    margin-top: 8px;
+  }
+}
+
 .nav-bar{
  
   .member-menu-list{
