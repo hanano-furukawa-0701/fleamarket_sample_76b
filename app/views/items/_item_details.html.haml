@@ -6,10 +6,13 @@
       .item-details__contents__item-box__images
         .item-details__contents__item-box__images_main
           = image_tag @item.images[0].url.url
+
         %ul.item-details__contents__item-box__sub-images
           - @item.images.drop(1).each do |image|
             %li.item-details__contents__item-box__sub-images_sub
             =image_tag image.url.url 
+
+
       .item-details__contents__item-box__price
         ￥
         =@item.price

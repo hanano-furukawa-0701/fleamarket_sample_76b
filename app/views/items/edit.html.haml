@@ -1,5 +1,7 @@
 .header
   = image_tag 'logo.png',size:"140x41",alt:"ロゴ",class:"logo"
+.error
+  = render 'error_form', locals: { item: @item }
 .contents
   .contents_body
     = form_for @item do |f|
@@ -12,6 +14,9 @@
         .contents_body_exhibit_maxtext
           最大10枚までアップロードできます
         .contents_body_exhibit_image
+          - if @item.persisted?
+            - @item.images.each_with_index do |image, i|
+              = image_tag image.url.url, data: { index: i }, width: "100", height: '100'
         #image-box
         = f.fields_for :images do |image|
           .js-file_group{"data-index" => "#{image.index}"}
@@ -20,10 +25,11 @@
             %span.js-remove 削除
           - if @item.persisted?
             = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-        - if @item.persisted?
-          .js-file_group{"data-index" => "#{@item.images.count}"}
-            = file_field_tag :url, name: "item[images_attributes][#{@item.images.count}][url]", class: 'js-file'
-            .js-remove 削除
+        
+          - if @item.persisted?
+            .js-file_group{"data-index" => "#{@item.images.count}"}
+              = file_field_tag :url, name: "item[images_attributes][#{@item.images.count}][url]", class: 'js-file'
+              .js-remove 削除
         
       .contents_body_name
         .contents_body_name_box
@@ -101,8 +107,6 @@
         .contents_body_shipping_btn
           = f.submit '変更する',class:'submit_btn'
             
-
-
         .contents_body_shipping_back
           =  link_to'もどる',root_path,class:'back_btn'
 
