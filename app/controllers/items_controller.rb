@@ -41,7 +41,8 @@ before_action :set_item, only:[:show, :destroy, :edit, :update, :purchase, :pay]
   end
 
   def show
-    @item
+    @comment = Comment.new
+    @comments = @item.comments.order(created_at: :desc)
   end
 
 
