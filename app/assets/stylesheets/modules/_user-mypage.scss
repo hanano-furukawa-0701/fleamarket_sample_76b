@@ -1,6 +1,8 @@
 .wrapper{
-  margin: 40px auto 0;
-  width: 1040px;
+  padding: 0 60px;
+  margin: auto 0;
+  margin-bottom: 10px;
+  max-width: 1040px;
   display: flex;
   justify-content: center;
   .side-bar{
@@ -13,6 +15,8 @@
     }
     h2{
       padding: 16px;
+      color: #333;
+      text-decoration: none;
     }
     .side_menu-items{
       position: relative;
@@ -50,10 +54,9 @@
         text-align: center;
       }
     }
-    .mypage-function{
+    .mypage__func{
       display: flex;
       justify-content: space-around;
-      text-decoration: none;
       li{
         width: 35%;
         height: 80px;
@@ -65,10 +68,6 @@
         align-items: center;
       }
       .function-logout{
-        text-decoration: none;
-        color: #333;
-      }
-      .function-creditcard{
         text-decoration: none;
         color: #333;
       }

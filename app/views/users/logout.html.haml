@@ -1,0 +1,18 @@
+.header
+  = render 'items/header'
+.contents
+  .wrapper
+    = render 'user-mypage_side-bar'
+    .main-content
+      .user-icon
+        .user-photo
+          = image_tag "member_photo_noimage_thumb.png", size:"60x60",alt:"アイコン"
+        .user-name
+          =@Nickname
+      .mypage__func
+        %li
+          = link_to('ログアウトする',destroy_user_session_path,method: :delete,class:"function-logout")
+= render "items/footer"
+
+.exhibition
+  = render "items/exhibition_btn"
