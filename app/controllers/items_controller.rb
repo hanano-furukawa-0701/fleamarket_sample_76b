@@ -50,7 +50,7 @@ before_action :set_item, only:[:show, :destroy, :edit, :update, :purchase, :pay]
       redirect_to root_path
       flash[:notice] = "更新しました"
     else 
-      render:edit
+    j  render:edit
       flash[:notice] = "更新できませんでした"
     end
   end
@@ -105,7 +105,7 @@ end
 
   private
   def item_params
-    params.require(:item).permit(:name, :explanation, :category, :price, :condition_id, :payer_id, :preparation_day_id, :prefecture_id, images_attributes: [:url, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :explanation, :category_id, :price, :condition_id, :payer_id, :preparation_day_id, :prefecture_id, images_attributes: [:url, :_destroy, :id]).merge(user_id: current_user.id)
   end
   
   def access_restrictions

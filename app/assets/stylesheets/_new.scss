@@ -65,25 +65,15 @@
     }
     &_details{
       border-bottom:medium solid  white;
-      height: 200px;
+      height: 250px;
       padding-left: 10px;
       &_box{
         color:rgb(136, 136, 136) ;
         margin-bottom: 10px;
         margin-top: 10px;
       }
-      &_category{
-        display: flex;
-        
-        &_must{color: white;
-          background-color: #3CCACE;
-          margin-left: 10px;
-        }
-      }
-      &_categoryfield{
-        
-      }
-      
+
+    
       &_conditionbox{
         
         display: flex;
