@@ -51,7 +51,7 @@ before_action :set_item, only:[:show, :destroy, :edit, :update, :purchase, :pay]
       redirect_to root_path
       flash[:notice] = "更新しました"
     else 
-      render:edit
+    j  render:edit
       flash[:notice] = "更新できませんでした"
     end
   end

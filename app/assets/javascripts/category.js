@@ -14,12 +14,12 @@ $(document).on('turbolinks:load', function(){
                             <select class="exhibitionPage__main__contents__detail__category__choose--select" id="child_category" name="item[category_id]">
                               <option value="---" data-category="---">---</option>
                               ${insertHTML}
-                            <select>
+                            </select>
                           </div>
                         </div>`;
-      $('.exhibitionPage__main__contents__detail__category__choose').append(childSelectHtml);
+      $('.contents_body_details_category').append(childSelectHtml);
     }
-
+    console.log("test");
     // 孫カテゴリーの表示作成
     function appendGrandchidrenBox(insertHTML){
       var grandchildSelectHtml = '';
@@ -32,9 +32,8 @@ $(document).on('turbolinks:load', function(){
                                   </select>
                                 </div>
                               </div>`;
-      $('.exhibitionPage__main__contents__detail__category__choose').append(grandchildSelectHtml);
+      $('.contents_body_details_category').append(grandchildSelectHtml);
     }
-
     // 親カテゴリー選択後のイベント
     $('#parent_category').on('change', function(){
       var parent_category_id = document.getElementById
@@ -46,6 +45,7 @@ $(document).on('turbolinks:load', function(){
           data: { parent_id: parent_category_id },
           dataType: 'json'
         })
+        
         .done(function(children){
           $('#children_wrapper').remove(); //親が変更された時、子以下を削除する
           $('#grandchildren_wrapper').remove();
@@ -53,6 +53,7 @@ $(document).on('turbolinks:load', function(){
           children.forEach(function(child){
             insertHTML += appendOption(child);
           });
+    
           appendChidrenBox(insertHTML);
         })
         .fail(function(){
@@ -65,7 +66,8 @@ $(document).on('turbolinks:load', function(){
     });
 
     // 子カテゴリー選択後のイベント
-    $('.exhibitionPage__main__contents__detail__category').on('change', '#child_category', function(){
+    $('.contents_body_details_category').on('change',"#child_category", function(){
+      console.log("test");
       var child_category_id = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
       if (child_category_id != "---"){ //子カテゴリーが初期値でないことを確認
         $.ajax({
@@ -81,6 +83,7 @@ $(document).on('turbolinks:load', function(){
             grandchildren.forEach(function(grandchild){
               insertHTML += appendOption(grandchild);
             });
+            console.log(insertHTML);
             appendGrandchidrenBox(insertHTML);
           }
         })
