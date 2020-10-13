@@ -33,10 +33,12 @@ before_action :set_item, only:[:show, :destroy, :edit, :update, :purchase, :pay]
     if @item.valid?
       @item.save
       redirect_to root_path
+      flash[:notice] = "出品できました"
     else
       @item.images.new
       render :new
-     
+      flash[:notice] = "出品できませんでした"
+  
     end
   end
 
