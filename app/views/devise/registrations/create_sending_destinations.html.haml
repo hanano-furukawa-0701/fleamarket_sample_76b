@@ -1,7 +1,8 @@
-
+.header
+  = image_tag 'logo.png',size:"140x41",alt:"ロゴ",class:"logo"
 .exit
   %h2 登録が完了しました
-  =link_to "トップへ戻る", root_path
+  =link_to "トップへ戻る", root_path,class:"top"
 
 
 = render "items/footer"
