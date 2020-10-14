@@ -380,9 +380,30 @@ a {
     width: 700px;
     margin: 0 auto;
     &__contents {
+      
       &__item-box {
         padding: 15px 40px 40px;
         background-color: $point-color;
+        position: relative;
+        &__sold {
+          width: 0;
+          height: 0;
+          border-top: 110px solid #ea352d;
+          border-right: 110px solid transparent;
+          border-bottom: 110px solid transparent;
+          border-left: 110px solid #ea352d;
+          z-index: 1;
+          position: absolute;
+          top: -1px;
+          left: -1px;
+          &__inner {
+            transform: rotate(-45deg);
+            font-size: 40px;
+            margin: -50px 0px 0px -85px;
+            color: #fff;
+            letter-spacing: 2px;
+          }
+        }
         &__sub-images{
           display: flex;
           img{width: 180px;
@@ -514,6 +535,7 @@ a {
             }
           }
         }
+        
       }
       &__comment-box {
         background-color: $point-color;
