@@ -1,6 +1,10 @@
 .item-details
   .item-details__contents
     .item-details__contents__item-box
+      -if @item.buyer_id.present?
+        .item-details__contents__item-box__sold
+          .item-details__contents__item-box__sold__inner
+            SOLD
       %h2.item-details__contents__item-box__name
         =@item.name
       .item-details__contents__item-box__images
@@ -72,6 +76,8 @@
           = link_to '#' do
             = icon('fas', 'flag')
             不適切な商品の通報
+      
+          
   - if user_signed_in?
     .item-details__contents__comment-box
       = form_with(model:[@item,@comment], local: true, class: "item-details__contents__conmment-box__form", id: "new_comment") do |form|
