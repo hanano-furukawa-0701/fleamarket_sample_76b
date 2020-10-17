@@ -5,7 +5,7 @@ class CreateSendingDestinations < ActiveRecord::Migration[5.2]
       t.string :destination_family_name,              null: false, default: ""
       t.string :destination_first_name_kana,              null: false, default: ""
       t.string :destination_family_name_kana,              null: false, default: ""
-      t.integer :post_code,              null: false
+      t.string :post_code,              null: false
       t.integer :prefecture_name,              null: false
       t.string :City,              null: false
       t.string :address,              null: false
@@ -14,6 +14,5 @@ class CreateSendingDestinations < ActiveRecord::Migration[5.2]
       t.references :user, foreign_key: true
       t.timestamps
     end
-    add_index :sending_destinations, :phone_number, unique: true
   end
 end
