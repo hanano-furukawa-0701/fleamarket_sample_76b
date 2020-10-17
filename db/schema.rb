@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 2020_10_04_000221) do
     t.string "destination_family_name", default: "", null: false
     t.string "destination_first_name_kana", default: "", null: false
     t.string "destination_family_name_kana", default: "", null: false
-    t.integer "post_code", null: false
+    t.string "post_code", null: false
     t.integer "prefecture_name", null: false
     t.string "City", null: false
     t.string "address", null: false
@@ -100,7 +100,6 @@ ActiveRecord::Schema.define(version: 2020_10_04_000221) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["phone_number"], name: "index_sending_destinations_on_phone_number", unique: true
     t.index ["user_id"], name: "index_sending_destinations_on_user_id"
   end
 
