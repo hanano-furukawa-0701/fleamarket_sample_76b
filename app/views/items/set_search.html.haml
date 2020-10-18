@@ -1,0 +1,16 @@
+.header
+  = render "header"
+.search-result
+  -if @search.present?
+    %h2.search-result__word
+    - @items.each do |item|
+      = item.name
+      %span.search-result__text
+        の検索結果
+  -else
+    eee
+  .search-result__items
+    = render 'search-result'
+= render "footer"
+- if user_signed_in? 
+  = render "exhibition_btn"
