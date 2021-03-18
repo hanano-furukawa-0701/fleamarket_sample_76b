@@ -1,3 +1,22 @@
+フリーマーケットのアプリケーションを作成しました。
+接続先情報
+URL http://18.180.151.34/
+ID/Pass
+ID: team_76b
+Pass: team_ogawa
+テスト用アカウント等
+購入者用
+メールアドレス: test_tarou@test.com
+パスワード: test5555
+購入用カード情報
+番号： 4242424242424242
+期限： Mon Dec 21 2020 00:00:00 GMT+0900 (日本標準時)
+セキュリティコード：123
+出品者用
+メールアドレス名: seller@seller.com
+パスワード: seller5555
+
+
 # README
 ## usersテーブル
 |Column|Type|Options|
